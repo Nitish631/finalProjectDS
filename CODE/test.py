@@ -31,7 +31,7 @@ toc_vectorStore = Chroma(
 )
 toc_retriever = toc_vectorStore.as_retriever(
     search_type="similarity",
-    search_kwargs={"k": 5}
+    search_kwargs={"k": 3}
 )
 page_extraction_model = ChatOllama(
     model="llama3.2:latest",
@@ -44,19 +44,20 @@ TOC_PROMPT_TEMPLATE = ChatPromptTemplate.from_messages(
             """
 You are a First Aid TOC router.
 
-Identify every relevant TOC section described by the user query.
+Identify the injury type described in the user query and select the
+most relevant TOC section.
 
-Use ONLY the relevant sections' content_page_range values.
+Use ONLY the selected section's content_page_range.
 
-Return the union of every page number in those ranges. If a cut may
-also involve bleeding, include both the wound and bleeding sections.
+Convert content_page_range [start, end] into every page number
+from start through end.
 
 Do not use retrieval_page_range.
 Do not use any other page range.
 Do not invent page numbers.
 Do not answer the medical question.
 
-Return only the page numbers from the relevant content_page_range values.
+Return only the page numbers from content_page_range.
 """
         ),
         (
@@ -146,8 +147,10 @@ while True:
         "query": query
     })
     pageData = page_extraction_model.invoke(final_prompt)
-    if pageData.pages:
-        pageData.pages = sorted(set(pageData.pages))
+    if  pageData.pages:
+        min_page=min(pageData.pages)
+        max_page=max(pageData.pages)
+        pageData.pages=list(range(min_page,max_page+1))
 
         print("-"*40)
         print("PAGES: ",pageData.pages)
