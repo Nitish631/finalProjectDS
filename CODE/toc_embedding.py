@@ -1,29 +1,62 @@
-from langchain_community.document_loaders import JSONLoader
-from langchain_community.vectorstores import Chroma
+from langchain_chroma import Chroma
 from langchain_ollama import OllamaEmbeddings
+from langchain_core.documents import Document
 import json
-from rich import print
+import os
 
-loader=JSONLoader(
-    file_path="ASSETS/table_of_content.json",
-    jq_schema=".document.chapters[].sections[]",
-    text_content=False
-)
 
-documents = loader.load()
-for doc in documents:
-    data=json.loads(doc.page_content)
-    print(data["retrieval_page_range"])
+BASE_DIR = os.path.dirname(os.path.dirname(__file__))
+TOC_FILE = os.path.join(BASE_DIR, "ASSETS", "table_of_content.json")
+VECTOR_DB = os.path.join(BASE_DIR, "VECTOR__DB")
 
-embedding_model=OllamaEmbeddings(model="nomic-embed-text")
-vectorStrore=Chroma.from_documents(
+with open(TOC_FILE, "r", encoding="utf-8") as toc_file:
+    toc_entries = json.load(toc_file)
+
+if not isinstance(toc_entries, list):
+    raise ValueError("table_of_content.json must contain a list of TOC entries.")
+
+documents = []
+for entry in toc_entries:
+    title = entry.get("title", "Untitled")
+    summary = entry.get("summary", "")
+    main_topic = entry.get("main_topic", "")
+    subtopics = entry.get("subtopics", [])
+    evidence_keywords = entry.get("evidence_keywords", [])
+    page_number = entry.get("page_number", "")
+
+    subtopic_text = "; ".join(str(item) for item in subtopics)
+    keyword_text = "; ".join(str(item) for item in evidence_keywords)
+
+    page_content = (
+        f"Page number: {page_number}\n"
+        f"Title: {title}\n"
+        f"Main topic: {main_topic}\n"
+        f"Summary: {summary}\n"
+        f"Subtopics: {subtopic_text}\n"
+        f"Evidence keywords: {keyword_text}"
+    )
+
+    documents.append(
+        Document(
+            page_content=page_content,
+            metadata={
+                "page_number": page_number,
+                "title": title,
+                "main_topic": main_topic,
+                "subtopics": subtopics,
+                "evidence_keywords": evidence_keywords,
+            },
+        )
+    )
+
+embedding_model = OllamaEmbeddings(model="mxbai-embed-large")
+
+vector_store = Chroma.from_documents(
     documents=documents,
     embedding=embedding_model,
     collection_name="toc_first_aid",
-    persist_directory="VECTOR__DB"
+    persist_directory=VECTOR_DB,
 )
-vectorStrore.add_documents(documents)
 
-
-print("Collection:", vectorStrore._collection.name)
-print("Document count:", vectorStrore._collection.count())
+print("Collection:", vector_store._collection.name)
+print("Document count:", vector_store._collection.count())

@@ -1,17 +1,11 @@
 import os
 import json
 import pymupdf
-
 from langchain_community.document_loaders import PyMuPDFLoader
 from langchain_ollama import OllamaEmbeddings
 from langchain_community.vectorstores import Chroma
 from langchain_core.documents import Document
 from rich import print
-
-
-# =========================================================
-# PATHS
-# =========================================================
 
 path = os.path.join(
     os.path.dirname(os.path.dirname(__file__)),
@@ -24,6 +18,8 @@ IMAGE_DIR = os.path.join(
     "ASSETS",
     "page_images"
 )
+
+BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
 IMAGE_DATA_FILE = os.path.join(
     os.path.dirname(os.path.dirname(__file__)),
@@ -65,7 +61,9 @@ for doc in docs:
         )
         with open(image_path, "wb") as image_file:
             image_file.write(image_bytes)
-        image_paths.append(image_path)
+
+        relative_image_path = os.path.relpath(image_path, BASE_DIR)
+        image_paths.append(relative_image_path.replace("\\", "/"))
     if image_paths:
         image_data[str(printed_page)] = image_paths
 
@@ -83,14 +81,19 @@ with open(
         indent=4
     )
 embedding_model = OllamaEmbeddings(
-    model="nomic-embed-text"
+    model="mxbai-embed-large"
 )
 content_vectorStore = Chroma(
     collection_name="first_aid",
     embedding_function=embedding_model,
     persist_directory="VECTOR__DB"
 )
-
+content_vectorStore.delete_collection()
+content_vectorStore = Chroma(
+    collection_name="first_aid",
+    embedding_function=embedding_model,
+    persist_directory="VECTOR__DB"
+)
 content_vectorStore.add_documents(docs)
 
 

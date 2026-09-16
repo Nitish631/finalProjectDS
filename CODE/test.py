@@ -1,26 +1,21 @@
 from langchain_ollama import ChatOllama, OllamaEmbeddings
 from langchain_chroma import Chroma
 from langchain_core.prompts import ChatPromptTemplate
-from pydantic import BaseModel
+from langchain_core.messages import HumanMessage,AIMessage
+from pydantic import BaseModel, Field
 from typing import List
 import os
 import json
 from rich import print
 
 
-class PageData(BaseModel):
-    pages: List[int]=[]
-
-    def __str__(self):
-        if self.pages:
-            return ",".join(map(str,self.pages))
-        return ""
-
-    def __repr__(self):
-        return self.__str__()
+class RelevantPages(BaseModel):
+    pages: List[int] = Field(
+        description="Relevant printed content page numbers from the candidate TOC sections"
+    )
 
 embedding_model = OllamaEmbeddings(
-    model="nomic-embed-text"
+    model="mxbai-embed-large"
 )
 
 
@@ -33,47 +28,46 @@ toc_retriever = toc_vectorStore.as_retriever(
     search_type="similarity",
     search_kwargs={"k": 3}
 )
-page_extraction_model = ChatOllama(
-    model="llama3.2:latest",
-    temperature=0
-).with_structured_output(schema=PageData)
-TOC_PROMPT_TEMPLATE = ChatPromptTemplate.from_messages(
+SECTION_SELECTOR_PROMPT = ChatPromptTemplate.from_messages(
     [
         (
             "system",
             """
-You are a First Aid TOC router.
+You are a first-aid retrieval filter.
 
-Identify the injury type described in the user query and select the
-most relevant TOC section.
+Select every candidate page that is genuinely relevant to the user's query.
+Keep pages that provide directly useful first-aid instructions. Do not select a
+page only because it shares a broad word such as skin, blood, or injury with the
+query.
 
-Use ONLY the selected section's content_page_range.
+Interpret short injury statements as requests for immediate first aid. Prefer
+pages that explain what to do now, such as controlling bleeding, applying a
+dressing, or immobilising an injury. Exclude descriptive or classification-only
+pages unless the user asks about types, classification, causes, or symptoms.
 
-Convert content_page_range [start, end] into every page number
-from start through end.
-
-Do not use retrieval_page_range.
-Do not use any other page range.
-Do not invent page numbers.
-Do not answer the medical question.
-
-Return only the page numbers from content_page_range.
+Return the relevant page numbers using the structured output schema. Each value
+must be a page number from the candidate entries below. Do not invent page
+numbers or return ranges. Only return pages that are directly useful.
 """
         ),
         (
             "human",
             """
-TOC:
-
-{TOC}
-
 USER QUERY:
-
 {query}
+
+CANDIDATE PAGES:
+{candidates}
+
+Select only the page numbers from the candidate pages above.
 """
         )
     ]
 )
+section_selector = ChatOllama(
+    model="llama3.2:latest",
+    temperature=0
+).with_structured_output(schema=RelevantPages)
 
 
 content_vectorStore = Chroma(
@@ -109,6 +103,7 @@ RULES:
 - If the provided source does not contain enough information, clearly say 'i dont have enough information about it'.
 """
         ),
+        ("placeholder","{chat_history}"),
         (
             "human",
             """
@@ -130,6 +125,49 @@ IMAGE_DATA_FILE = os.path.join(
 with open(IMAGE_DATA_FILE,"r",encoding="utf-8")as image_json_file:
     image_data=json.load(image_json_file)
 
+
+def estimate_tokens(messages):
+    total = 0
+    for msg in messages:
+        text = str(msg.content)
+        total += max(1, len(text.split()) * 1.3)
+    return total
+
+
+def summarize_history(history):
+    if len(history) <= 2:
+        return history
+
+    summary_prompt = ChatPromptTemplate.from_messages(
+        [
+            (
+                "system",
+                "Summarize the earlier conversation into a short memory summary. Keep only the important facts like user condition, user needs, and prior first-aid guidance."
+            ),
+            (
+                "human",
+                "CONVERSATION HISTORY:\n{history_text}"
+            ),
+        ]
+    )
+
+    history_text = "\n\n".join(
+        f"{type(msg).__name__}: {msg.content}"
+        for msg in history
+    )
+    summary_response = LLM_Model.invoke(
+        summary_prompt.invoke({"history_text": history_text})
+    )
+    summary_text = summary_response.content.strip()
+
+    recent_messages = history[-4:]
+    return [
+        AIMessage(content=f"Earlier conversation summary: {summary_text}")
+    ] + recent_messages
+
+
+chat_history = []
+
 print("\n\n\n               RAG SYSTEM CREATED \n\n\n")
 print("PRESS 0 TO EXIT\n")
 
@@ -139,24 +177,28 @@ while True:
     if query == "0":
         break
     docs = toc_retriever.invoke(query)
-    context = "\n\n".join(
-        [doc.page_content for doc in docs]
+    candidates = "\n\n".join(
+        f"page_number: {doc.metadata.get('page_number', 'unknown')}\n"
+        f"title: {doc.metadata.get('title', 'Untitled')}\n"
+        f"main_topic: {doc.metadata.get('main_topic', '')}\n"
+        f"summary: {doc.metadata.get('summary', '')}\n"
+        f"subtopics: {doc.metadata.get('subtopics', [])}\n"
+        f"{doc.page_content}"
+        for doc in docs
     )
-    final_prompt = TOC_PROMPT_TEMPLATE.invoke({
-        "TOC": context,
-        "query": query
-    })
-    pageData = page_extraction_model.invoke(final_prompt)
-    if  pageData.pages:
-        min_page=min(pageData.pages)
-        max_page=max(pageData.pages)
-        pageData.pages=list(range(min_page,max_page+1))
-
+    selector_response = section_selector.invoke(
+        SECTION_SELECTOR_PROMPT.invoke({
+            "query": query,
+            "candidates": candidates,
+        })
+    )
+    pages = sorted(selector_response.pages)
+    if pages:
         print("-"*40)
-        print("PAGES: ",pageData.pages)
+        print("PAGES: ", pages)
         results = content_vectorStore._collection.get(
             where={
-                "page": {"$in": pageData.pages}
+                "page": {"$in": pages}
             },
             include=["documents"]
         )
@@ -164,7 +206,7 @@ while True:
         for document in results["documents"]:
             content+=document
         image_paths=[]
-        for page in pageData.pages:
+        for page in pages:
             page_images=image_data.get(str(page),[])
             if page_images:
                 image_paths.extend(page_images)
@@ -173,13 +215,15 @@ while True:
         content=""
         print("NO CONTENT FOUND")
     print("-"*40)
-    final_prompt=QUERY_PROMPT_TEMPLATE.invoke({"content":content,"query":query})
+    if estimate_tokens(chat_history) > 500:
+        chat_history = summarize_history(chat_history)
+
+    final_prompt=QUERY_PROMPT_TEMPLATE.invoke({"content":content,"query":query,"chat_history":chat_history})
     print(final_prompt)
     print("-"*40)
     response=LLM_Model.invoke(final_prompt)
+    chat_history.append(HumanMessage(content=query))
+    chat_history.append(AIMessage(content=response.content))
     print(f"AI:\n{response.content}")
-    print("-"*40)
-    print("IMAGE SOURCE: ")
-    print(image_paths)
     print("-"*40)
     print("===================================================")
