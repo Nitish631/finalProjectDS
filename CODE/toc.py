@@ -129,24 +129,22 @@ DO NOT generate TOC entries for the previous or next pages.
 
 TARGET PAGE:
 {target_page_number}
-
-------------------------------------------------------------
-PREVIOUS PAGE CONTEXT
-------------------------------------------------------------
-
-{previous_page_text}
-
-------------------------------------------------------------
-TARGET PAGE CONTENT
-------------------------------------------------------------
-
+TARGET PAGE CONTENT:
 {target_page_text}
 
-------------------------------------------------------------
-NEXT PAGE CONTEXT
-------------------------------------------------------------
 
+
+
+PREVIOUS PAGE:{previous_page_number}
+PREVIOUS PAGE CONTEXT
+{previous_page_text}
+
+
+
+NEXT PAGE :{next_page_number}
+NEXT PAGE CONTEXT
 {next_page_text}
+
 
 ------------------------------------------------------------
 RULES
@@ -176,7 +174,7 @@ RULES
 9. main_topic must describe the main subject of the
    TARGET page.
 
-10. subtopics should contain important concepts,
+10. subtopics should contain important topics,
     procedures, instructions, or action points found
     on the TARGET page.
 

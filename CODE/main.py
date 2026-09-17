@@ -7,6 +7,8 @@ from typing import List
 import os
 import json
 from rich import print
+from fastapi import FastAPI
+from fastapi.staticfiles import StaticFiles
 
 
 class RelevantPages(BaseModel):
@@ -14,19 +16,26 @@ class RelevantPages(BaseModel):
         description="Relevant printed content page numbers from the candidate TOC sections"
     )
 
+class ChatMessage(BaseModel):
+    role:str
+    content:str
+class FirstAidRequest(BaseModel):
+    query:str
+    chat_history:List[ChatMessage]=Field(default_factory=list)
+
 embedding_model = OllamaEmbeddings(
     model="mxbai-embed-large"
 )
 
 
 toc_vectorStore = Chroma(
-    persist_directory="VECTOR__DB",
+    persist_directory="VECTOR_DB",
     embedding_function=embedding_model,
     collection_name="toc_first_aid"
 )
 toc_retriever = toc_vectorStore.as_retriever(
     search_type="similarity",
-    search_kwargs={"k": 3}
+    search_kwargs={"k": 5}
 )
 SECTION_SELECTOR_PROMPT = ChatPromptTemplate.from_messages(
     [
@@ -35,19 +44,11 @@ SECTION_SELECTOR_PROMPT = ChatPromptTemplate.from_messages(
             """
 You are a first-aid retrieval filter.
 
-Select every candidate page that is genuinely relevant to the user's query.
-Keep pages that provide directly useful first-aid instructions. Do not select a
-page only because it shares a broad word such as skin, blood, or injury with the
-query.
-
-Interpret short injury statements as requests for immediate first aid. Prefer
-pages that explain what to do now, such as controlling bleeding, applying a
-dressing, or immobilising an injury. Exclude descriptive or classification-only
-pages unless the user asks about types, classification, causes, or symptoms.
-
-Return the relevant page numbers using the structured output schema. Each value
-must be a page number from the candidate entries below. Do not invent page
-numbers or return ranges. Only return pages that are directly useful.
+Analyze the user's query and the candidate pages provided below.
+Select every candidate page that is relevant to the user's query based on the information contained in the candidate entries.
+Return the relevant page numbers with offset_pages_used using the structured output schema.
+The page numbers must come only from the candidate entries and offset_pages_used.
+donot miss the offset_pages_used if it is present in the candidate entries.
 """
         ),
         (
@@ -59,7 +60,7 @@ USER QUERY:
 CANDIDATE PAGES:
 {candidates}
 
-Select only the page numbers from the candidate pages above.
+Select only the page numbers and offset_pages_used from the candidate pages above.
 """
         )
     ]
@@ -71,7 +72,7 @@ section_selector = ChatOllama(
 
 
 content_vectorStore = Chroma(
-    persist_directory="VECTOR__DB",
+    persist_directory="VECTOR_DB",
     embedding_function=embedding_model,
     collection_name="first_aid"
 )
@@ -90,16 +91,13 @@ and provide first-aid guidance using ONLY the provided source of knowledge.
 
 RULES:
 - Identify the user's injury or situation.
+- Search for the action that must take for the user's injury or situation in the provided query.
 - Give concise, practical first-aid steps.
 - Use only procedures supported by the provided source.
 - Do not use outside medical knowledge.
 - Do not invent treatments, procedures, warnings, or symptoms.
-- Do not mention emergency services unless the user's situation is clearly
-  life-threatening or the source specifically indicates that emergency
-  assistance is required.
+- If mentioned emergency services to call 995 for SCDF change it to call Nepal Ambulance: 102 
 - If emergency assistance is clearly required, use Nepal Ambulance: 102 or Nepal police: 100.
-- Otherwise, do not mention 102, 100, or 101.
-- Do not add unnecessary warnings or disclaimers.
 - If the provided source does not contain enough information, clearly say 'i dont have enough information about it'.
 """
         ),
@@ -166,19 +164,24 @@ def summarize_history(history):
     ] + recent_messages
 
 
-chat_history = []
+app=FastAPI()
+app.mount("/images",
+          StaticFiles(directory=os.path.join(os.path.dirname(os.path.dirname(__file__)),"ASSETS/page_images")),
+          name="page_images")
 
 print("\n\n\n               RAG SYSTEM CREATED \n\n\n")
 print("PRESS 0 TO EXIT\n")
 
-while True:
+@app.post("/first_aid")
+def get_first_aid_response(request:FirstAidRequest):
+    query=request.query
+    chat_history=[HumanMessage(content=msg.content) if msg.role=="user" else AIMessage(content=msg.content) for msg in request.chat_history]
     print("===================================================")
-    query = input("YOU: ")
-    if query == "0":
-        break
+    print(f"YOU: {query}")
     docs = toc_retriever.invoke(query)
     candidates = "\n\n".join(
         f"page_number: {doc.metadata.get('page_number', 'unknown')}\n"
+        f"offset_pages_used: {doc.metadata.get('offset_pages_used', 0)}\n"
         f"title: {doc.metadata.get('title', 'Untitled')}\n"
         f"main_topic: {doc.metadata.get('main_topic', '')}\n"
         f"summary: {doc.metadata.get('summary', '')}\n"
@@ -192,7 +195,8 @@ while True:
             "candidates": candidates,
         })
     )
-    pages = sorted(selector_response.pages)
+    pages=set(selector_response.pages)
+    pages = sorted(pages)
     if pages:
         print("-"*40)
         print("PAGES: ", pages)
@@ -208,8 +212,9 @@ while True:
         image_paths=[]
         for page in pages:
             page_images=image_data.get(str(page),[])
-            if page_images:
-                image_paths.extend(page_images)
+            for image_path in page_images:
+                image_name=os.path.basename(image_path)
+                image_paths.append(f"/images/{image_name}")
         print("THERE ARE THE DATA FOR THE QUERY")
     else:
         content=""
@@ -217,9 +222,10 @@ while True:
     print("-"*40)
     if estimate_tokens(chat_history) > 500:
         chat_history = summarize_history(chat_history)
+    print(content)
+    print("-"*40)
 
     final_prompt=QUERY_PROMPT_TEMPLATE.invoke({"content":content,"query":query,"chat_history":chat_history})
-    print(final_prompt)
     print("-"*40)
     response=LLM_Model.invoke(final_prompt)
     chat_history.append(HumanMessage(content=query))
@@ -227,3 +233,12 @@ while True:
     print(f"AI:\n{response.content}")
     print("-"*40)
     print("===================================================")
+    return{
+        "response":response.content,
+        "image_paths":image_paths,
+        "chat_history":[
+            {"role":"user","content":msg.content} if isinstance(msg,HumanMessage) else {"role":"ai","content":msg.content}
+            for msg in chat_history]
+    }
+
+# python -m uvicorn CODE.main:app --reload --host 0.0.0.0 --port 8000

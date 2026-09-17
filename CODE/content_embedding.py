@@ -86,13 +86,13 @@ embedding_model = OllamaEmbeddings(
 content_vectorStore = Chroma(
     collection_name="first_aid",
     embedding_function=embedding_model,
-    persist_directory="VECTOR__DB"
+    persist_directory="VECTOR_DB"
 )
 content_vectorStore.delete_collection()
 content_vectorStore = Chroma(
     collection_name="first_aid",
     embedding_function=embedding_model,
-    persist_directory="VECTOR__DB"
+    persist_directory="VECTOR_DB"
 )
 content_vectorStore.add_documents(docs)
 
