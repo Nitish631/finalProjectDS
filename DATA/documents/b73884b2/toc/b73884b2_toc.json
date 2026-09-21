@@ -1,0 +1,3196 @@
+[
+    {
+        "page_number": 0,
+        "title": "Primary Survey",
+        "summary": "Guidance on conducting a primary survey to assess a casualty's overall condition and identify potential life-threatening injuries.",
+        "main_topic": "Primary Survey",
+        "subtopics": [
+            "Assessing the casualty's airway, breathing, and circulation (ABCs)",
+            "Identifying potential injuries and taking initial steps to address them",
+            "Determining the need for further medical attention or transport"
+        ],
+        "offset_pages_used": [
+            1
+        ],
+        "evidence_keywords": [
+            "primary survey",
+            "ABCs",
+            "assessing injuries",
+            "initial treatment"
+        ],
+        "retrieval_context": "This page would be useful when a user needs to assess a casualty's overall condition, identify potential life-threatening injuries, and determine the need for further medical attention or transport. It is relevant for first aiders in situations where a casualty is unconscious, injured, or showing signs of distress."
+    },
+    {
+        "page_number": 1,
+        "title": "First Aid Essentials",
+        "summary": "This page covers the basics of first aid, including definitions, roles, and precautions.",
+        "main_topic": "First Aid Essentials",
+        "subtopics": [
+            "Definition and Aims of First Aid",
+            "Roles and Limitations of a First Aider",
+            "Universal Precautions",
+            "First Aid Kit Content and Maintenance"
+        ],
+        "offset_pages_used": [
+            0,
+            2
+        ],
+        "evidence_keywords": [
+            "first aid",
+            "definition",
+            "precautions",
+            "universal precautions",
+            "first aid kit"
+        ],
+        "retrieval_context": "This page would be useful when a user is looking for general information on first aid, such as understanding the basics of first aid or learning about universal precautions."
+    },
+    {
+        "page_number": 2,
+        "title": "Contributors",
+        "summary": "List of contributors to the Singapore Resuscitation and First Aid Council (SRFAC) manual",
+        "main_topic": "Acknowledgments",
+        "subtopics": [],
+        "offset_pages_used": [
+            1,
+            3
+        ],
+        "evidence_keywords": [],
+        "retrieval_context": "This page would be useful for users looking for information on the contributors to the manual, such as the organizations and individuals involved in its creation."
+    },
+    {
+        "page_number": 3,
+        "title": "First Aid Manual",
+        "summary": "A comprehensive guide to first aid procedures and guidelines.",
+        "main_topic": "First Aid",
+        "subtopics": [
+            "Occupational First Aid (OFA) Manual",
+            "American Heart Association and American Red Cross Guidelines",
+            "European Resuscitation Council Guidelines",
+            "International First Aid and Resuscitation Guidelines"
+        ],
+        "offset_pages_used": [
+            2,
+            4
+        ],
+        "evidence_keywords": [
+            "First Aid",
+            "Resuscitation",
+            "Occupational First Aid",
+            "American Heart Association",
+            "American Red Cross",
+            "European Resuscitation Council",
+            "International Federation of Red Cross and Red Crescent Societies"
+        ],
+        "retrieval_context": "This page would be useful in situations where first aid is required, such as in occupational accidents, medical emergencies, or natural disasters."
+    },
+    {
+        "page_number": 4,
+        "title": "IV",
+        "summary": "This page provides information on IV administration, including guidelines for preparing and administering IV fluids, and safety precautions to take when handling IV equipment.",
+        "main_topic": "IV Administration",
+        "subtopics": [
+            "Preparing and Administering IV Fluids",
+            "Safety Precautions for IV Equipment",
+            "Guidelines for IV Administration"
+        ],
+        "offset_pages_used": [
+            3,
+            5
+        ],
+        "evidence_keywords": [
+            "IV administration",
+            "IV fluids",
+            "IV equipment",
+            "Safety precautions",
+            "Guidelines for IV administration"
+        ],
+        "retrieval_context": "This page would be useful when a user needs to administer IV fluids, such as in a medical emergency or during a medical procedure. It would also be useful for users who need to understand the safety precautions to take when handling IV equipment."
+    },
+    {
+        "page_number": 5,
+        "title": "First Aid Essentials",
+        "summary": "This page provides an overview of the definition and aims of first aid, including the four main objectives: preserving life, preventing worsening, promoting recovery, and providing comfort and relief.",
+        "main_topic": "Definition and Aims of First Aid",
+        "subtopics": [
+            "Preserve life",
+            "Prevent condition from worsening",
+            "Promote recovery",
+            "Provide comfort and relief"
+        ],
+        "offset_pages_used": [
+            4,
+            6
+        ],
+        "evidence_keywords": [
+            "CPR",
+            "bleeding control",
+            "wound covering",
+            "immobilization",
+            "pain relief"
+        ],
+        "retrieval_context": "This page would be useful when a user is looking for information on the definition and aims of first aid, or when they need to understand the primary objectives of first aid in an emergency situation."
+    },
+    {
+        "page_number": 6,
+        "title": "Definition and Aims of First Aid",
+        "summary": "The immediate management of a person who is injured or has suddenly taken ill.",
+        "main_topic": "Definition and Aims of First Aid",
+        "subtopics": [
+            "Preserve life",
+            "Prevent condition from worsening",
+            "Promote recovery",
+            "Provide comfort and relief"
+        ],
+        "offset_pages_used": [
+            5,
+            7
+        ],
+        "evidence_keywords": [
+            "Chest compressions/CPR",
+            "Control bleeding",
+            "Cover wounds",
+            "Immobilise fractures",
+            "Relieve pain and discomfort"
+        ],
+        "retrieval_context": "When a person is injured or suddenly ill, and first aid is needed to preserve life, prevent worsening of the condition, promote recovery, and provide comfort and relief."
+    },
+    {
+        "page_number": 7,
+        "title": "Roles and Limitations of a First Aider",
+        "summary": "This page explains the roles and limitations of a First Aider, including their responsibilities, duties, and restrictions.",
+        "main_topic": "First Aider Roles and Responsibilities",
+        "subtopics": [
+            "Provide First Aid to the casualty until medical help arrives",
+            "Be familiar with the layout of places frequented",
+            "Understand the processes and associated hazards",
+            "Take note of the casualty's condition, type and time of treatment",
+            "Periodically check the First Aid kit and contents",
+            "Administer prescribed medication (for appointed First Aiders)",
+            "Refer to Workplace Safety and Health Act",
+            "Do not prescribe medication to the casualty",
+            "Seek consent before administering First Aid treatment"
+        ],
+        "offset_pages_used": [
+            6,
+            8
+        ],
+        "evidence_keywords": [
+            "First Aider roles",
+            "First Aider responsibilities",
+            "Workplace Safety and Health Act",
+            "Prescribed medication",
+            "Consent for First Aid treatment"
+        ],
+        "retrieval_context": "This page would be useful when a user needs to understand the roles and limitations of a First Aider, such as in a workplace or school setting, or when administering First Aid to a casualty with a specific condition or injury."
+    },
+    {
+        "page_number": 8,
+        "title": "Universal Precautions",
+        "summary": "Precautions to prevent transmission of blood-borne pathogens during first aid",
+        "main_topic": "Universal Precautions",
+        "subtopics": [
+            "Keep open wounds covered with dressings",
+            "Use disposable latex/nitrile gloves",
+            "Use a mouth-to-barrier device",
+            "Wash the area immediately with soap and running water",
+            "Wash hands with soap and water thoroughly"
+        ],
+        "offset_pages_used": [
+            7,
+            9
+        ],
+        "evidence_keywords": [
+            "blood-borne pathogens",
+            "Personal Protective Equipment (PPE)",
+            "disposable latex/nitrile gloves",
+            "mouth-to-barrier device",
+            "hand washing technique"
+        ],
+        "retrieval_context": "This page would be useful when treating a casualty with an open wound, performing a medical procedure that involves blood or body fluids, or when providing first aid in a situation where there is a risk of transmission of blood-borne pathogens."
+    },
+    {
+        "page_number": 9,
+        "title": "First Aid Kit Content and Maintenance",
+        "summary": "This page explains the importance of a well-maintained First Aid kit and provides guidelines for its content and usage.",
+        "main_topic": "First Aid Kit",
+        "subtopics": [
+            "Checking the First Aid kit's location, content, and usage",
+            "Removing non-essential items from the First Aid kit",
+            "Frequent checks and replacements of used or expired items",
+            "Medication storage and assistance for diagnosed conditions"
+        ],
+        "offset_pages_used": [
+            8,
+            10
+        ],
+        "evidence_keywords": [
+            "First Aid kit",
+            "Content and maintenance",
+            "Universal Precautions",
+            "Personal Protective Equipment (PPE)",
+            "Blood-borne pathogens",
+            "Disposable gloves",
+            "Hand washing technique"
+        ],
+        "retrieval_context": "This page would be useful when a user needs to know how to maintain and use a First Aid kit, especially in situations involving blood-borne pathogens or when assisting someone with a diagnosed condition."
+    },
+    {
+        "page_number": 10,
+        "title": "First Aid Kit Content and Maintenance",
+        "summary": "This page provides guidelines for the content and maintenance of a first aid kit.",
+        "main_topic": "First Aid Kit",
+        "subtopics": [
+            "Familiarity with the first aid kit's location, content, and usage",
+            "Checking and maintaining the first aid kit regularly",
+            "Replacing used or expired items",
+            "Medication storage and assistance for diagnosed conditions"
+        ],
+        "offset_pages_used": [
+            9,
+            11
+        ],
+        "evidence_keywords": [
+            "First Aid kit",
+            "Content and maintenance",
+            "Regular checks",
+            "Medication storage"
+        ],
+        "retrieval_context": "This page would be useful when a user is looking for information on how to maintain and check a first aid kit, or when they need to know what items to include in a first aid kit."
+    },
+    {
+        "page_number": 11,
+        "title": "Primary Survey",
+        "summary": "Steps to perform a primary survey on a casualty, including ensuring personal safety, checking responsiveness, and performing chest compressions.",
+        "main_topic": "Primary Survey",
+        "subtopics": [
+            "Danger - Ensure personal safety",
+            "Response - Check for casualty's responsiveness",
+            "Shout for Help - Get help and call 995 for Singapore Civil Defence Force",
+            "AED - Have a nearby AED brought to the casualty",
+            "Breathing - Look for normal breathing",
+            "Chest Compressions - Start Chest Compressions if breathing is absent or unsure"
+        ],
+        "offset_pages_used": [
+            10,
+            12
+        ],
+        "evidence_keywords": [
+            "Primary Survey",
+            "Casualty care",
+            "Chest compressions",
+            "Breathing assessment",
+            "AED use"
+        ],
+        "retrieval_context": "This page would be useful in emergency situations where a casualty needs immediate attention, such as when responding to a cardiac arrest or a severe injury. The primary survey is a critical step in assessing the casualty's condition and providing life-saving interventions."
+    },
+    {
+        "page_number": 12,
+        "title": "Primary Survey",
+        "summary": "A systematic plan to ensure the safety of the casualty and self, and to perform triage to determine the priority required to save a life.",
+        "main_topic": "Primary Survey",
+        "subtopics": [
+            "Factors to consider when carrying out Primary Survey",
+            "The Primary Survey",
+            "Rapid Body Survey"
+        ],
+        "offset_pages_used": [
+            11,
+            13
+        ],
+        "evidence_keywords": [
+            "Primary Survey",
+            "Emergency Action Plan",
+            "Primary Survey steps",
+            "Danger",
+            "Response",
+            "Shout for Help",
+            "AED",
+            "Breathing",
+            "Chest Compressions"
+        ],
+        "retrieval_context": "When responding to an emergency situation, such as a sudden unexpected event that creates a risk to life and limb, and when assessing the casualty's responsiveness, bleeding, and injuries."
+    },
+    {
+        "page_number": 13,
+        "title": "Primary Survey",
+        "summary": "The Primary Survey is a systematic approach to assess the casualty's condition and provide immediate life-saving treatment.",
+        "main_topic": "Primary Survey",
+        "subtopics": [
+            "Danger - Ensure personal safety",
+            "Response - Check for casualty's responsiveness",
+            "Shout for Help - Get help and call 995 for Singapore Civil Defence Force",
+            "AED - Have a nearby AED brought to the casualty",
+            "Breathing - Look for normal breathing",
+            "Chest Compressions - Start Chest Compressions if breathing is absent or unsure"
+        ],
+        "offset_pages_used": [
+            12,
+            14
+        ],
+        "evidence_keywords": [
+            "Primary Survey",
+            "DRSABC",
+            "Chest Compressions",
+            "AED",
+            "Breathing",
+            "Danger",
+            "Response",
+            "Shout for Help"
+        ],
+        "retrieval_context": "This page would be useful when assessing a casualty for life-threatening conditions, such as severe bleeding, unresponsiveness, or difficulty breathing, and when performing a rapid body survey to identify injuries and provide appropriate emergency care."
+    },
+    {
+        "page_number": 14,
+        "title": "Secondary Survey",
+        "summary": "Conduct a secondary survey after the primary survey to gather more information about the casualty's condition.",
+        "main_topic": "Secondary Survey",
+        "subtopics": [
+            "History",
+            "Vital Signs",
+            "Head-to-toe examination"
+        ],
+        "offset_pages_used": [
+            13,
+            15
+        ],
+        "evidence_keywords": [
+            "Secondary Survey",
+            "Primary Survey",
+            "AVPU Scale",
+            "Triage",
+            "Recovery position"
+        ],
+        "retrieval_context": "Useful when assessing a casualty's condition after the primary survey, particularly for history, vital signs, and head-to-toe examination."
+    },
+    {
+        "page_number": 15,
+        "title": "Assessing Casualties",
+        "summary": "This page provides guidance on assessing casualties, including evaluating vital signs, performing a head-to-toe examination, and triaging casualties.",
+        "main_topic": "Assessment and Triage",
+        "subtopics": [
+            "Evaluating Vital Signs",
+            "Head-to-Toe Examination",
+            "Triage and Sorting of Casualties"
+        ],
+        "offset_pages_used": [
+            14,
+            16
+        ],
+        "evidence_keywords": [
+            "vital signs",
+            "head-to-toe examination",
+            "triage",
+            "assessing casualties",
+            "spinal injury",
+            "chest injury",
+            "head injury",
+            "fractures",
+            "wounds"
+        ],
+        "retrieval_context": "This page would be useful when assessing a casualty's vital signs, performing a head-to-toe examination, or triaging casualties to determine the level of attention required."
+    },
+    {
+        "page_number": 16,
+        "title": "Evacuation and Transportation Plan",
+        "summary": "Provides guidelines for evacuation and transportation of casualties with spinal injuries, multiple injuries, chest and abdominal wounds.",
+        "main_topic": "Evacuation and Transportation Plan",
+        "subtopics": [
+            "Stretcher for spinal injury, multiple injuries, chest and abdominal wounds",
+            "One rescuer assisted evacuation, two or three rescuers assisted evacuation for casualties who are unable to walk unsupported but are conscious",
+            "Alternative evacuation method using a chair"
+        ],
+        "offset_pages_used": [
+            15,
+            17
+        ],
+        "evidence_keywords": [
+            "spinal injury",
+            "multiple injuries",
+            "chest wound",
+            "abdominal wound",
+            "evacuation plan",
+            "transportation plan"
+        ],
+        "retrieval_context": "This page would be useful when evacuating a casualty with spinal injuries, multiple injuries, chest and abdominal wounds, or when planning evacuation procedures for a group of casualties."
+    },
+    {
+        "page_number": 17,
+        "title": "Record and Report",
+        "summary": "Provides guidelines for recording and reporting incidents, including information to be collected and the format of the report.",
+        "main_topic": "Incident Reporting",
+        "subtopics": [
+            "Scene of incident",
+            "Mechanism of injury",
+            "History of the incident or illness",
+            "Vital signs",
+            "Treatment given",
+            "Response to treatment",
+            "Progress"
+        ],
+        "offset_pages_used": [
+            16,
+            18
+        ],
+        "evidence_keywords": [
+            "SCDF",
+            "incident reporting",
+            "written report",
+            "vital signs",
+            "treatment given"
+        ],
+        "retrieval_context": "This page would be useful when a user needs to record and report an incident, such as a workplace accident or a medical emergency, and requires guidance on what information to collect and how to format the report."
+    },
+    {
+        "page_number": 18,
+        "title": "myResponder Mobile Application",
+        "summary": "The myResponder Mobile Application is a tool used by the Singapore Civil Defence Force (SCDF) to alert members of the public to nearby fire and medical cases, and to provide them with information to assist in the response.",
+        "main_topic": "myResponder Mobile Application",
+        "subtopics": [
+            "Alerting the public to nearby fire and medical cases",
+            "Providing information to assist in the response",
+            "Voluntary response by Community First Responders (CFRs)",
+            "Using the 'Call 995' button to send geolocation to SCDF's 995 Operations Centre"
+        ],
+        "offset_pages_used": [
+            17,
+            19
+        ],
+        "evidence_keywords": [
+            "myResponder Mobile Application",
+            "SCDF",
+            "Community First Responders (CFRs)",
+            "Call 995",
+            "AEDs",
+            "Minor fires"
+        ],
+        "retrieval_context": "This page would be useful when a user needs to know how to use the myResponder Mobile Application to respond to nearby fire and medical cases, or when they need to understand the role of Community First Responders (CFRs) in the response."
+    },
+    {
+        "page_number": 19,
+        "title": "myResponder",
+        "summary": "The myResponder mobile application by SCDF to alert members of the public to nearby fire and medical cases, and save lives.",
+        "main_topic": "myResponder Mobile Application",
+        "subtopics": [
+            "Alerting members of the public to nearby fire and medical cases",
+            "Providing geolocation to SCDF's 995 Operations Centre",
+            "Dispatching emergency resources to the scene",
+            "Guided advisories for minor fires and CPR",
+            "Voluntary response by Community First Responders (CFRs)"
+        ],
+        "offset_pages_used": [
+            18,
+            20
+        ],
+        "evidence_keywords": [
+            "myResponder",
+            "SCDF",
+            "Community First Responders",
+            "Cardiac arrest",
+            "Fire cases",
+            "AEDs",
+            "CPR",
+            "Minor fires"
+        ],
+        "retrieval_context": "When responding to cardiac arrest or fire cases, or when seeking information on how to respond to these situations, users may need to access information on the myResponder mobile application and its features."
+    },
+    {
+        "page_number": 20,
+        "title": "Unconscious Casualty",
+        "summary": "Guidance on assessing and treating unconscious casualties, including head/spinal injuries, heat disorders, and stroke.",
+        "main_topic": "Unconscious Casualty",
+        "subtopics": [
+            "Head/Spinal Injuries",
+            "Heat Disorders",
+            "Fits",
+            "Fainting",
+            "Low Blood Sugar",
+            "Stroke",
+            "The Recovery Position"
+        ],
+        "offset_pages_used": [
+            19,
+            21
+        ],
+        "evidence_keywords": [
+            "unconsciousness",
+            "head injuries",
+            "spinal cord injuries",
+            "heat stroke",
+            "stroke symptoms"
+        ],
+        "retrieval_context": "This page would be useful when treating or assessing an unconscious casualty, such as in a first aid emergency or when responding to a cardiac arrest or stroke."
+    },
+    {
+        "page_number": 21,
+        "title": "Unconsciousness",
+        "summary": "Definition of Unconsciousness, explanation of brain structure and functions, and causes of unconsciousness.",
+        "main_topic": "Unconsciousness",
+        "subtopics": [
+            "Definition of Unconsciousness",
+            "Causes of Unconsciousness",
+            "Procedures for treating Unconsciousness"
+        ],
+        "offset_pages_used": [
+            20,
+            22
+        ],
+        "evidence_keywords": [
+            "Unconsciousness",
+            "Brain structure",
+            "Causes of Unconsciousness",
+            "Primary Survey",
+            "Chest compressions",
+            "AED",
+            "Recovery Position"
+        ],
+        "retrieval_context": "This page would be useful in situations where a person is unresponsive, such as in cases of cardiac arrest, head injuries, or poisoning. It provides information on the definition of unconsciousness, causes, and procedures for treating unconsciousness, making it essential for first aid responders to provide immediate care."
+    },
+    {
+        "page_number": 22,
+        "title": "Causes of Unconsciousness",
+        "summary": "This page lists the possible causes of unconsciousness, including cardiac arrest, head injury, and poisoning.",
+        "main_topic": "Unconsciousness",
+        "subtopics": [
+            "Causes",
+            "Important Notes"
+        ],
+        "offset_pages_used": [
+            21,
+            23
+        ],
+        "evidence_keywords": [
+            "cardiac arrest",
+            "head injury",
+            "poisoning",
+            "unconsciousness"
+        ],
+        "retrieval_context": "This page would be useful when a user is trying to understand the possible causes of unconsciousness, such as in a medical emergency or when trying to identify the underlying cause of a patient's unresponsiveness."
+    },
+    {
+        "page_number": 23,
+        "title": "Head/Spinal Injuries",
+        "summary": "Causes, recognition, and treatment of head and spinal injuries.",
+        "main_topic": "Head and Spinal Injuries",
+        "subtopics": [
+            "Causes of Head Injury",
+            "Causes of Spinal Injury",
+            "Recognition of Concussion",
+            "Recognition of Compression",
+            "Recognition of Skull Fracture",
+            "Recognition of Spinal Injury",
+            "Treatment of Head Injury",
+            "Treatment of Spinal Injury"
+        ],
+        "offset_pages_used": [
+            22,
+            24
+        ],
+        "evidence_keywords": [
+            "Concussion",
+            "Compression",
+            "Skull Fracture",
+            "Spinal Injury",
+            "Primary Survey",
+            "Chest Compressions",
+            "AED",
+            "Recovery Position"
+        ],
+        "retrieval_context": "This page would be useful when treating head or spinal injuries, recognizing concussion, compression, skull fracture, or spinal injury, or performing primary survey and chest compressions."
+    },
+    {
+        "page_number": 24,
+        "title": "Head and Spinal Injuries",
+        "summary": "Information on head and spinal injuries, including causes, recognition, and actions to take.",
+        "main_topic": "Head and Spinal Injuries",
+        "subtopics": [
+            "Causes of Head and Spinal Injuries",
+            "Recognition of Concussion, Compression, and Skull Fracture",
+            "Actions to Take for Head Injury and Spinal Injury"
+        ],
+        "offset_pages_used": [
+            23,
+            25
+        ],
+        "evidence_keywords": [
+            "concussion",
+            "compression",
+            "skull fracture",
+            "spinal injury",
+            "head injury",
+            "spinal cord injury"
+        ],
+        "retrieval_context": "This page would be useful when treating or responding to head and spinal injuries, such as concussions, compression, skull fractures, and spinal cord injuries, in emergency situations or first aid scenarios."
+    },
+    {
+        "page_number": 25,
+        "title": "Head Injury and Spinal Injury",
+        "summary": "Actions to take for head injuries (concussion, compression, and skull fracture) and spinal injuries, including calling for medical help, performing primary surveys, and immobilizing the head.",
+        "main_topic": "Head Injury and Spinal Injury",
+        "subtopics": [
+            "Call for 995 for SCDF",
+            "Perform Primary Survey",
+            "Immobilize and support the head",
+            "Stop external bleeding",
+            "Monitor and record vital signs"
+        ],
+        "offset_pages_used": [
+            24,
+            26
+        ],
+        "evidence_keywords": [
+            "Head Injury",
+            "Concussion",
+            "Compression",
+            "Skull Fracture",
+            "Spinal Injury",
+            "Immobilize",
+            "Primary Survey"
+        ],
+        "retrieval_context": "This page would be useful in emergency situations where a head injury or spinal injury is suspected, such as when a person is unresponsive, bleeding, or showing signs of spinal cord damage."
+    },
+    {
+        "page_number": 26,
+        "title": "Heat Disorders",
+        "summary": "Heat disorders are a group of physically related illnesses caused by prolonged exposure to hot temperatures, insufficient fluid intake, or failure of temperature regulating mechanisms of the body.",
+        "main_topic": "Heat Disorders",
+        "subtopics": [
+            "Recognition",
+            "Actions to Take for Heat Cramps",
+            "Actions to Take for Heat Exhaustion",
+            "Actions to Take for Heat Stroke"
+        ],
+        "offset_pages_used": [
+            25,
+            27
+        ],
+        "evidence_keywords": [
+            "heat cramps",
+            "heat exhaustion",
+            "heat stroke",
+            "heat exposure",
+            "insufficient water intake",
+            "sweating mechanism",
+            "body temperature",
+            "chest compressions",
+            "AED",
+            "recovery position"
+        ],
+        "retrieval_context": "This page would be useful when recognizing symptoms of heat disorders, such as heat cramps, heat exhaustion, or heat stroke, and when taking actions to treat these conditions, especially in situations involving strenuous activity or exposure to hot temperatures."
+    },
+    {
+        "page_number": 27,
+        "title": "Heat Disorders",
+        "summary": "Heat disorders include heat cramps, heat exhaustion, and heat stroke. This page provides actions to take and recognition signs for each condition.",
+        "main_topic": "Heat Disorders",
+        "subtopics": [
+            "Actions to Take",
+            "Heat Cramps",
+            "Heat Exhaustion",
+            "Heat Stroke"
+        ],
+        "offset_pages_used": [
+            26,
+            28
+        ],
+        "evidence_keywords": [
+            "heat cramps",
+            "heat exhaustion",
+            "heat stroke",
+            "heat disorders",
+            "heat exposure",
+            "insufficient water intake",
+            "sweating mechanism",
+            "body temperature",
+            "muscle cramps",
+            "weakness",
+            "dizziness",
+            "headache",
+            "restlessness",
+            "confusion",
+            "flushed skin",
+            "rapid pulse",
+            "unconsciousness"
+        ],
+        "retrieval_context": "This page would be useful when recognizing signs of heat disorders, such as heat cramps, heat exhaustion, or heat stroke, and knowing actions to take to provide first aid."
+    },
+    {
+        "page_number": 28,
+        "title": "Managing Seizures and Fits",
+        "summary": "Guidance on recognizing and responding to seizures and fits, including epilepsy, fits, and fainting.",
+        "main_topic": "Seizures and Fits",
+        "subtopics": [
+            "Recognition",
+            "Actions to Take",
+            "Performing the Primary Survey"
+        ],
+        "offset_pages_used": [
+            27,
+            29
+        ],
+        "evidence_keywords": [
+            "Epilepsy",
+            "Seizures",
+            "Fits",
+            "Fainting",
+            "Primary Survey",
+            "Chest compressions",
+            "AED",
+            "Recovery position"
+        ],
+        "retrieval_context": "This page would be useful in emergency situations where a person is experiencing seizures, fits, or fainting, such as in a workplace accident, sports injury, or medical emergency."
+    },
+    {
+        "page_number": 29,
+        "title": "Fainting",
+        "summary": "Temporary loss of consciousness due to severe pain, unpleasant sights, prolonged standing, or hunger.",
+        "main_topic": "Fainting",
+        "subtopics": [
+            "Recognition",
+            "Actions to Take"
+        ],
+        "offset_pages_used": [
+            28,
+            30
+        ],
+        "evidence_keywords": [
+            "fainting",
+            "loss of consciousness",
+            "severe pain",
+            "unpleasant sights",
+            "prolonged standing",
+            "hunger"
+        ],
+        "retrieval_context": "This page would be useful when a user is experiencing or witnessing a sudden loss of consciousness, particularly in situations involving severe pain, hunger, or prolonged standing."
+    },
+    {
+        "page_number": 30,
+        "title": "Low Blood Sugar",
+        "summary": "Recognize and treat low blood sugar in casualties, including giving a sweet beverage and calling for medical help.",
+        "main_topic": "Low Blood Sugar",
+        "subtopics": [
+            "Recognition",
+            "Action to Take",
+            "Symptoms"
+        ],
+        "offset_pages_used": [
+            29,
+            31
+        ],
+        "evidence_keywords": [
+            "Low Blood Sugar",
+            "Rapid loss of consciousness",
+            "Sweet beverage",
+            "Call 995 for SCDF"
+        ],
+        "retrieval_context": "This page would be useful when recognizing symptoms of low blood sugar, such as rapid loss of consciousness, and when treating casualties with insufficient food intake or diabetes medication."
+    },
+    {
+        "page_number": 31,
+        "title": "Stroke First Aid",
+        "summary": "Learn how to recognize the signs of a stroke and provide first aid to help prevent brain damage.",
+        "main_topic": "Stroke",
+        "subtopics": [
+            "Recognition",
+            "Actions to take",
+            "Performing the Primary Survey",
+            "Using an AED",
+            "Recovery Position"
+        ],
+        "offset_pages_used": [
+            30,
+            32
+        ],
+        "evidence_keywords": [
+            "FAST",
+            "Stroke",
+            "Blood clot",
+            "Ruptured blood vessel",
+            "Chest compressions",
+            "AED",
+            "Recovery Position"
+        ],
+        "retrieval_context": "This page is useful when recognizing the signs of a stroke, such as altered level of consciousness, slurred speech, or loss of movement and sensation, and when providing first aid to help prevent brain damage."
+    },
+    {
+        "page_number": 32,
+        "title": "The Recovery Position",
+        "summary": "A position used to manage a casualty who is unresponsive but breathing normally, to keep the airway open and prevent obstruction.",
+        "main_topic": "Recovery Position",
+        "subtopics": [
+            "Positioning the casualty",
+            "Steps to achieve the recovery position",
+            "Importance of maintaining the recovery position"
+        ],
+        "offset_pages_used": [
+            31,
+            33
+        ],
+        "evidence_keywords": [
+            "Recovery position",
+            "Airway obstruction",
+            "Tongue",
+            "Mucus",
+            "Vomit",
+            "Stroke",
+            "Chest compressions",
+            "AED"
+        ],
+        "retrieval_context": "This page would be useful when responding to a casualty who is unresponsive but breathing normally, or when recognizing the signs of a stroke and needing to act quickly to preserve the airway."
+    },
+    {
+        "page_number": 33,
+        "title": "Recovery Position",
+        "summary": "The recovery position is used to manage a casualty who is unresponsive but breathing normally, preventing airway obstruction.",
+        "main_topic": "First Aid and Resuscitation",
+        "subtopics": [
+            "Positioning the casualty",
+            "Bending the casualty's far knee to a 90-degree angle",
+            "Rolling the casualty towards the rescuer",
+            "Final recovery position"
+        ],
+        "offset_pages_used": [
+            32,
+            34
+        ],
+        "evidence_keywords": [
+            "recovery position",
+            "airway obstruction",
+            "unresponsive casualty",
+            "breathing normally",
+            "trauma",
+            "knee angle"
+        ],
+        "retrieval_context": "This page would be useful when treating an unresponsive casualty who is breathing normally, or when rolling a casualty towards the rescuer in the recovery position."
+    },
+    {
+        "page_number": 34,
+        "title": "Respiratory Emergencies",
+        "summary": "Guidance on managing respiratory emergencies such as foreign body airway obstruction, asthma, and fumes inhalation.",
+        "main_topic": "Respiratory Emergencies",
+        "subtopics": [
+            "Adult Foreign Body Airway Obstruction",
+            "Asthma",
+            "Hyperventilation",
+            "Fumes Inhalation",
+            "Allergic Reaction"
+        ],
+        "offset_pages_used": [
+            33,
+            35
+        ],
+        "evidence_keywords": [
+            "airway obstruction",
+            "asthma",
+            "hyperventilation",
+            "fumes inhalation",
+            "allergic reaction"
+        ],
+        "retrieval_context": "This page would be useful in situations where a person is experiencing difficulty breathing, such as choking on an object, having an asthma attack, or inhaling toxic fumes. It is also relevant for individuals who are experiencing symptoms of an allergic reaction, such as difficulty breathing, rapid heartbeat, and swelling of the face, lips, tongue, or throat."
+    },
+    {
+        "page_number": 35,
+        "title": "Respiratory System",
+        "summary": "Explains the structure and functions of the respiratory system, including the process of breathing and gas exchange.",
+        "main_topic": "Respiratory System",
+        "subtopics": [
+            "Structure of the respiratory system",
+            "Functions of the respiratory system",
+            "Mechanism of breathing"
+        ],
+        "offset_pages_used": [
+            34,
+            36
+        ],
+        "evidence_keywords": [
+            "respiratory system",
+            "breathing",
+            "gas exchange",
+            "diaphragm",
+            "lungs",
+            "trachea"
+        ],
+        "retrieval_context": "This page would be useful when a user is trying to understand the structure and functions of the respiratory system, or when they are looking for information on how to breathe properly, or when they are experiencing respiratory problems such as asthma or hyperventilation."
+    },
+    {
+        "page_number": 36,
+        "title": "Respiratory System",
+        "summary": "The respiratory system provides oxygen for the body and removes carbon dioxide.",
+        "main_topic": "Respiratory System",
+        "subtopics": [
+            "Functions of the Respiratory System",
+            "Mechanism of Breathing",
+            "Structure of the Respiratory System",
+            "Requirements for Normal Breathing"
+        ],
+        "offset_pages_used": [
+            35,
+            37
+        ],
+        "evidence_keywords": [
+            "oxygen",
+            "carbon dioxide",
+            "respiration",
+            "breathing",
+            "lungs",
+            "diaphragm",
+            "inter-costal muscle"
+        ],
+        "retrieval_context": "This page would be useful for individuals experiencing respiratory distress, learning about the functions and structure of the respiratory system, or understanding the process of breathing and gas exchange."
+    },
+    {
+        "page_number": 37,
+        "title": "Breathing and Respiration",
+        "summary": "This page explains the requirements for normal breathing, the mechanism of breathing, and respiratory emergencies.",
+        "main_topic": "Breathing and Respiration",
+        "subtopics": [
+            "Requirements for Normal Breathing",
+            "Mechanism of Breathing",
+            "Respiratory Emergencies",
+            "Breathing Rates for Normal Persons at Rest",
+            "Respiratory Emergencies",
+            "Causes of Respiratory Problems",
+            "Important Notes"
+        ],
+        "offset_pages_used": [
+            36,
+            38
+        ],
+        "evidence_keywords": [
+            "oxygen",
+            "respiratory tract",
+            "diaphragm",
+            "lungs",
+            "carbon dioxide",
+            "breathing rates",
+            "respiratory emergencies",
+            "choking",
+            "fumes inhalation",
+            "drowning",
+            "hyperventilation",
+            "bronchial asthma"
+        ],
+        "retrieval_context": "This page would be useful when a user is experiencing breathing difficulties, recognizing respiratory emergencies, or seeking information on normal breathing requirements and mechanisms."
+    },
+    {
+        "page_number": 38,
+        "title": "Respiratory Emergencies",
+        "summary": "Guidance on recognizing and responding to respiratory emergencies, including causes, symptoms, and procedures for treatment.",
+        "main_topic": "Respiratory Emergencies",
+        "subtopics": [
+            "Recognition",
+            "Causes",
+            "Important Notes",
+            "Procedures for Treatment"
+        ],
+        "offset_pages_used": [
+            37,
+            39
+        ],
+        "evidence_keywords": [
+            "laboured breathing",
+            "cyanosis",
+            "choking",
+            "fumes inhalation",
+            "drowning",
+            "hyperventilation",
+            "bronchial asthma",
+            "CPR",
+            "AED"
+        ],
+        "retrieval_context": "This page would be useful when a user is experiencing or witnessing respiratory distress, such as difficulty breathing, gasping for breath, or signs of cyanosis, and needs guidance on recognizing the emergency and providing appropriate treatment."
+    },
+    {
+        "page_number": 39,
+        "title": "Respiratory Emergencies",
+        "summary": "Guidance on recognizing and responding to breathing difficulties and respiratory emergencies.",
+        "main_topic": "Respiratory Emergencies",
+        "subtopics": [
+            "Recognizing respiratory emergencies",
+            "Causes of respiratory problems",
+            "Performing the Primary Survey and CPR",
+            "Checking for obstructions in the mouth",
+            "Monitoring the casualty"
+        ],
+        "offset_pages_used": [
+            38,
+            40
+        ],
+        "evidence_keywords": [
+            "breathing difficulty",
+            "laboured breathing",
+            "cyanosis",
+            "choking",
+            "fumes inhalation",
+            "drowning",
+            "hyperventilation",
+            "bronchial asthma",
+            "CPR",
+            "Primary Survey"
+        ],
+        "retrieval_context": "This page would be useful when a user is experiencing or witnessing breathing difficulties, recognizing signs of respiratory emergencies, or needing guidance on responding to such situations."
+    },
+    {
+        "page_number": 40,
+        "title": "Foreign Body Airway Obstruction",
+        "summary": "Causes, symptoms, and procedures for treating airway obstruction due to foreign bodies.",
+        "main_topic": "Foreign Body Airway Obstruction",
+        "subtopics": [
+            "Causes",
+            "Contributing Factors",
+            "Precautions",
+            "Recognition",
+            "Procedures"
+        ],
+        "offset_pages_used": [
+            39,
+            41
+        ],
+        "evidence_keywords": [
+            "Foreign Body Airway Obstruction",
+            "Airway obstruction",
+            "Choking",
+            "Cyanotic",
+            "Universal distress signal",
+            "CPR",
+            "AED"
+        ],
+        "retrieval_context": "This page would be useful when treating airway obstruction due to foreign bodies, recognizing symptoms of choking, or performing first aid procedures for airway obstruction."
+    },
+    {
+        "page_number": 41,
+        "title": "Foreign Body Airway Obstruction (FBAO)",
+        "summary": "Relief techniques for FBAO, including the Heimlich Maneuver and chest thrusts for pregnant and obese casualties.",
+        "main_topic": "Foreign Body Airway Obstruction",
+        "subtopics": [
+            "Causes and Contributing Factors",
+            "Techniques used to relieve FBAO",
+            "Abdominal Thrusts and Chest Thrusts"
+        ],
+        "offset_pages_used": [
+            40,
+            42
+        ],
+        "evidence_keywords": [
+            "Heimlich Maneuver",
+            "Chest Thrusts",
+            "Abdominal Thrusts",
+            "Choking",
+            "Airway Obstruction"
+        ],
+        "retrieval_context": "This page would be useful when a user is experiencing or witnessing a foreign body airway obstruction, such as a choking incident, and needs guidance on relief techniques."
+    },
+    {
+        "page_number": 42,
+        "title": "Relieving Foreign Body Airway Obstruction (FBAO)",
+        "summary": "Techniques for relieving FBAO in responsive adults and children, including the Heimlich Maneuver and chest thrusts for obese or pregnant casualties.",
+        "main_topic": "Foreign Body Airway Obstruction (FBAO) Relief",
+        "subtopics": [
+            "Heimlich Maneuver",
+            "Abdominal Thrust",
+            "Chest Thrusts",
+            "Unconscious Choking Casualty"
+        ],
+        "offset_pages_used": [
+            41,
+            43
+        ],
+        "evidence_keywords": [
+            "Heimlich Maneuver",
+            "Abdominal Thrust",
+            "Chest Thrusts",
+            "Foreign Body Airway Obstruction (FBAO)",
+            "Choking",
+            "Obstructed Airway"
+        ],
+        "retrieval_context": "This page would be useful when a user is experiencing or witnessing a choking emergency, particularly in situations where the casualty is unable to speak, breathe, or cough, or when a user needs to perform the Heimlich Maneuver or chest thrusts on an obese or pregnant casualty."
+    },
+    {
+        "page_number": 43,
+        "title": "Chest Thrusts",
+        "summary": "Alternative technique for obese or pregnant casualties, used to relieve airway obstruction.",
+        "main_topic": "Chest Thrusts",
+        "subtopics": [
+            "Ask if the casualty is choking",
+            "Perform Chest Thrust",
+            "Unconscious Choking Casualty",
+            "Support and position the casualty",
+            "Provide chest compressions"
+        ],
+        "offset_pages_used": [
+            42,
+            44
+        ],
+        "evidence_keywords": [
+            "Chest Thrusts",
+            "Obese casualties",
+            "Pregnant casualties",
+            "Choking",
+            "Airway obstruction",
+            "Chest compressions"
+        ],
+        "retrieval_context": "This page would be useful in situations where a choking casualty is obese or pregnant, and the first aider needs to perform chest thrusts to relieve airway obstruction."
+    },
+    {
+        "page_number": 44,
+        "title": "Chest Compressions",
+        "summary": "Instructions for performing chest compressions after 30 chest compressions, including checking the mouth and removing foreign bodies.",
+        "main_topic": "Chest Compressions",
+        "subtopics": [
+            "Check the mouth and remove foreign bodies",
+            "Continue with 30 chest compressions",
+            "Do not perform blind finger sweep"
+        ],
+        "offset_pages_used": [
+            43,
+            45
+        ],
+        "evidence_keywords": [
+            "chest compressions",
+            "foreign body",
+            "blind finger sweep"
+        ],
+        "retrieval_context": "This page would be useful in situations where a first aider needs to perform chest compressions on a casualty, such as in cardiac arrest or choking emergencies."
+    },
+    {
+        "page_number": 45,
+        "title": "Asthma First Aid",
+        "summary": "Guidance on recognizing and managing asthma attacks, including symptoms, causes, recognition, and actions to take.",
+        "main_topic": "Asthma",
+        "subtopics": [
+            "Causes",
+            "Recognition",
+            "Actions to Take",
+            "Direct MDI Use",
+            "MDI with Spacer"
+        ],
+        "offset_pages_used": [
+            44,
+            46
+        ],
+        "evidence_keywords": [
+            "asthma attack",
+            "difficulty breathing",
+            "wheezing",
+            "inhaler",
+            "Metered Dose Inhaler",
+            "Asthma Action Plan"
+        ],
+        "retrieval_context": "This page would be useful when a casualty is experiencing difficulty breathing, wheezing, or other symptoms of an asthma attack, and the responder needs to provide immediate care and administer medication."
+    },
+    {
+        "page_number": 46,
+        "title": "Managing Asthma Attacks",
+        "summary": "Guidance on recognizing and managing asthma attacks, including administration of medication and when to call for medical help.",
+        "main_topic": "Asthma",
+        "subtopics": [
+            "Direct MDI use",
+            "MDI with Spacer",
+            "Actions to Take",
+            "When to Call for Medical Help"
+        ],
+        "offset_pages_used": [
+            45,
+            47
+        ],
+        "evidence_keywords": [
+            "Asthma Action Plan",
+            "Metered Dose Inhaler",
+            "Chest compressions",
+            "AED"
+        ],
+        "retrieval_context": "This page would be useful when a casualty is experiencing an asthma attack, and the user needs to know how to administer medication and provide basic life support."
+    },
+    {
+        "page_number": 47,
+        "title": "Managing Asthma Attacks",
+        "summary": "Guidance on recognizing and treating asthma attacks, including administration of medication and recognizing symptoms of hyperventilation.",
+        "main_topic": "Asthma Management",
+        "subtopics": [
+            "Administering Medication",
+            "Recognizing Symptoms",
+            "Actions to Take"
+        ],
+        "offset_pages_used": [
+            46,
+            48
+        ],
+        "evidence_keywords": [
+            "Asthma Action Plan",
+            "Metered Dose Inhaler",
+            "Hyperventilation",
+            "Anxiety",
+            "Panic Attack"
+        ],
+        "retrieval_context": "This page would be useful when a user is experiencing an asthma attack, recognizing symptoms of hyperventilation, or needs guidance on administering medication to a casualty."
+    },
+    {
+        "page_number": 48,
+        "title": "Hyperventilation",
+        "summary": "A condition of over-breathing, commonly seen in acute anxiety and panic attacks, leading to excessive loss of carbon dioxide and numbness of the hands and legs.",
+        "main_topic": "Hyperventilation",
+        "subtopics": [
+            "Causes",
+            "Recognition",
+            "Actions to take"
+        ],
+        "offset_pages_used": [
+            47,
+            49
+        ],
+        "evidence_keywords": [
+            "Anxiety",
+            "Hyperventilation",
+            "Panic attack",
+            "Fright",
+            "Dizziness",
+            "Faintness",
+            "Trembling",
+            "Numbness"
+        ],
+        "retrieval_context": "This page would be useful when treating a casualty experiencing hyperventilation, recognizing symptoms such as unnaturally fast, deep breathing, dizziness, faintness, trembling, or numbness in the hands and legs, and taking actions to reassure the casualty and advise them to see a doctor."
+    },
+    {
+        "page_number": 49,
+        "title": "Fumes Inhalation",
+        "summary": "Fumes inhalation occurs when smoke or fumes from a fire or other source are inhaled, potentially causing serious injury or death.",
+        "main_topic": "Fumes Inhalation",
+        "subtopics": [
+            "Causes",
+            "Recognition",
+            "Actions to take"
+        ],
+        "offset_pages_used": [
+            48,
+            50
+        ],
+        "evidence_keywords": [
+            "Carbon Monoxide Inhalation",
+            "Fumes Inhalation",
+            "Smoke Inhalation",
+            "Fire",
+            "Respiratory Arrest"
+        ],
+        "retrieval_context": "This page would be useful when treating a casualty who has inhaled smoke or fumes from a fire, recognizing symptoms of carbon monoxide poisoning, or taking actions to prevent further injury."
+    },
+    {
+        "page_number": 50,
+        "title": "Actions to Take",
+        "summary": "Steps to take in emergency situations, including removing casualties from danger, performing primary surveys, and administering CPR and AEDs.",
+        "main_topic": "Emergency Response",
+        "subtopics": [
+            "Remove casualty from danger",
+            "Perform primary survey and administer CPR and AED",
+            "Treat other injuries",
+            "Monitor and record vital signs"
+        ],
+        "offset_pages_used": [
+            49,
+            51
+        ],
+        "evidence_keywords": [
+            "Primary Survey",
+            "CPR",
+            "AED",
+            "Remove casualty from danger",
+            "Monitor vital signs"
+        ],
+        "retrieval_context": "When responding to a fire or smoke-filled room, or when dealing with a casualty who has inhaled smoke or fumes, this page would be useful for guidance on actions to take to ensure the casualty's safety and well-being."
+    },
+    {
+        "page_number": 51,
+        "title": "Allergic Reaction",
+        "summary": "An allergic reaction is an overreaction of the body's natural defense system that can range from mild to life-threatening.",
+        "main_topic": "Allergic Reaction",
+        "subtopics": [
+            "Recognition",
+            "Action to Take"
+        ],
+        "offset_pages_used": [
+            50,
+            52
+        ],
+        "evidence_keywords": [
+            "allergic reaction",
+            "anaphylaxis",
+            "symptoms",
+            "treatment",
+            "epinephrine auto injector"
+        ],
+        "retrieval_context": "This page would be useful when recognizing the symptoms of an allergic reaction, such as hives, swelling, or difficulty breathing, and knowing the actions to take to treat it, including administering epinephrine auto injectors and performing CPR."
+    },
+    {
+        "page_number": 52,
+        "title": "First Aid for Allergic Reactions",
+        "summary": "Guidance on recognizing and responding to allergic reactions, including mild to moderate and life-threatening anaphylaxis.",
+        "main_topic": "Allergic Reactions",
+        "subtopics": [
+            "Recognition of symptoms",
+            "Action to take in case of an allergic reaction",
+            "Use of Epinephrine auto injector"
+        ],
+        "offset_pages_used": [
+            51,
+            53
+        ],
+        "evidence_keywords": [
+            "allergic reaction",
+            "anaphylaxis",
+            "Epinephrine auto injector",
+            "symptoms of anaphylaxis"
+        ],
+        "retrieval_context": "When treating a casualty with an allergic reaction, this page provides guidance on recognizing symptoms, taking action, and using an Epinephrine auto injector. It is useful for first aid responders, medical professionals, and individuals who need to respond to allergic reactions in emergency situations."
+    },
+    {
+        "page_number": 53,
+        "title": "Shock, Bleeding and Wounds",
+        "summary": "This page provides information on shock, bleeding, and wounds, including procedures for treating shock, bleeding, and bandaging wounds.",
+        "main_topic": "Shock, Bleeding and Wounds",
+        "subtopics": [
+            "Shock",
+            "Bleeding",
+            "Wounds",
+            "Bandaging"
+        ],
+        "offset_pages_used": [
+            52,
+            54
+        ],
+        "evidence_keywords": [
+            "Shock",
+            "Bleeding",
+            "Wounds",
+            "Bandaging",
+            "Epinephrine auto injector",
+            "Chest compressions"
+        ],
+        "retrieval_context": "This page would be useful when treating a casualty experiencing shock, bleeding, or wounds, such as in a first aid emergency situation, or when seeking information on wound care and treatment protocols."
+    },
+    {
+        "page_number": 54,
+        "title": "Circulatory System",
+        "summary": "The circulatory system is made up of the heart and blood vessels, distributing oxygen and nutrients to tissues and carrying waste products away.",
+        "main_topic": "Circulatory System",
+        "subtopics": [
+            "Blood Vessels",
+            "Blood Pressure",
+            "The Pulse"
+        ],
+        "offset_pages_used": [
+            53,
+            55
+        ],
+        "evidence_keywords": [
+            "arteries",
+            "veins",
+            "capillaries",
+            "blood pressure",
+            "pulse rate",
+            "tachycardia",
+            "bradycardia",
+            "irregular heartbeat"
+        ],
+        "retrieval_context": "This page would be useful when treating shock, bleeding, or wounds, or when checking pulse rate in patients with cardiovascular conditions."
+    },
+    {
+        "page_number": 55,
+        "title": "Pulse Rate",
+        "summary": "Describes the normal and abnormal pulse rates, including how to check for pulse and what to do in case of a slow or fast heart rate.",
+        "main_topic": "Pulse Rate",
+        "subtopics": [
+            "Checking Pulse Rate",
+            "Normal Pulse Rates",
+            "Abnormal Pulse Rates",
+            "What to Do in Case of a Slow or Fast Heart Rate"
+        ],
+        "offset_pages_used": [
+            54,
+            56
+        ],
+        "evidence_keywords": [
+            "tachycardia",
+            "bradycardia",
+            "irregular heartbeat",
+            "weak pulse"
+        ],
+        "retrieval_context": "This page would be useful when a user is experiencing symptoms of a slow or fast heart rate, such as dizziness, fainting, or chest pain, or when they need to check pulse rate in a medical emergency situation."
+    },
+    {
+        "page_number": 56,
+        "title": "Shock",
+        "summary": "Definition, types, recognition, and signs of shock",
+        "main_topic": "Shock",
+        "subtopics": [
+            "Types of Shock",
+            "Recognition",
+            "Signs and Symptoms",
+            "Response to Blood Loss"
+        ],
+        "offset_pages_used": [
+            55,
+            57
+        ],
+        "evidence_keywords": [
+            "Hypovolemic Shock",
+            "Cardiogenic Shock",
+            "Septic Shock",
+            "Anaphylactic Shock",
+            "Neurogenic Shock",
+            "Pulse rate",
+            "Blood pressure",
+            "Capillary refill time"
+        ],
+        "retrieval_context": "When recognizing signs of shock, such as low blood pressure, rapid pulse, or pale skin, or when assessing the severity of blood loss and its effects on vital signs, this page would be useful."
+    },
+    {
+        "page_number": 57,
+        "title": "Neurogenic Shock",
+        "summary": "Neurogenic shock is a form of distributive shock caused by damage to the central nervous system, leading to low blood pressure and decreased sympathetic tone.",
+        "main_topic": "Neurogenic Shock",
+        "subtopics": [
+            "Signs and Symptoms",
+            "Response to Blood Loss",
+            "Actions to Take"
+        ],
+        "offset_pages_used": [
+            56,
+            58
+        ],
+        "evidence_keywords": [
+            "Neurogenic shock",
+            "distributive shock",
+            "autonomic pathways",
+            "spinal cord injury",
+            "traumatic brain injury",
+            "low blood pressure",
+            "decreased sympathetic tone"
+        ],
+        "retrieval_context": "This page would be useful when treating a casualty with suspected neurogenic shock, recognizing signs and symptoms, and taking appropriate actions to stabilize their condition."
+    },
+    {
+        "page_number": 58,
+        "title": "Actions to Take",
+        "summary": "Steps to take when responding to a casualty, including reassurance, bleeding control, and vital sign monitoring.",
+        "main_topic": "Casualty Response",
+        "subtopics": [
+            "Reassure the casualty",
+            "Call 995 for SCDF",
+            "Raise the casualty's legs above the level of the heart",
+            "Control severe bleeding and bandage any wounds or burns",
+            "Immobilize any fractures",
+            "Loosen any tight clothing and keep the casualty comfortable",
+            "Moisten the lips if the casualty complains of thirst",
+            "Monitor the casualty and record vital signs",
+            "Perform the Primary Survey and commence CPR and use the AED if the casualty is not breathing"
+        ],
+        "offset_pages_used": [
+            57,
+            59
+        ],
+        "evidence_keywords": [
+            "reassurance",
+            "bleeding control",
+            "vital sign monitoring",
+            "primary survey",
+            "cpr",
+            "aed"
+        ],
+        "retrieval_context": "When responding to a casualty with severe bleeding, shock, or other life-threatening conditions, this page provides guidance on the necessary actions to take."
+    },
+    {
+        "page_number": 59,
+        "title": "Bleeding",
+        "summary": "Types of bleeding, recognition, and actions to take for external and internal bleeding.",
+        "main_topic": "Bleeding",
+        "subtopics": [
+            "Types of bleeding",
+            "Actions to take for external bleeding",
+            "Actions to take for internal bleeding"
+        ],
+        "offset_pages_used": [
+            58,
+            60
+        ],
+        "evidence_keywords": [
+            "Arterial bleeding",
+            "Venous bleeding",
+            "Capillary bleeding",
+            "External bleeding",
+            "Internal bleeding",
+            "Direct pressure",
+            "Primary Survey",
+            "CPR",
+            "AED"
+        ],
+        "retrieval_context": "This page would be useful when recognizing and responding to bleeding injuries, such as arterial bleeding, venous bleeding, or capillary bleeding, and when taking actions to control external or internal bleeding, such as applying direct pressure or performing the Primary Survey."
+    },
+    {
+        "page_number": 60,
+        "title": "Managing External Bleeding",
+        "summary": "Learn how to apply direct pressure to control minor to moderate bleeding, and when to call for emergency assistance.",
+        "main_topic": "External Bleeding",
+        "subtopics": [
+            "Apply direct pressure to the wound using a gloved hand and place a clean dressing over the wound",
+            "Direct Pressure can help control minor to moderate bleeding",
+            "Apply a bulky pad extending beyond the edges of the wound, and bandage firmly",
+            "Do not disturb the pads or bandages once bleeding is controlled",
+            "Call 995 for SCDF and perform the Primary Survey",
+            "Lay the casualty down and raise the casualty’s legs above the level of the heart",
+            "Loosen tight clothing and monitor the casualty and record vital signs at regular intervals",
+            "Commence chest compressions and use the AED if the casualty is not breathing",
+            "Give nothing by mouth and reassure the casualty"
+        ],
+        "offset_pages_used": [
+            59,
+            61
+        ],
+        "evidence_keywords": [
+            "direct pressure",
+            "external bleeding",
+            "venous bleeding",
+            "capillary bleeding",
+            "shock",
+            "Primary Survey",
+            "chest compressions",
+            "AED"
+        ],
+        "retrieval_context": "This page would be useful when managing external bleeding, recognizing signs and symptoms of shock, and knowing when to call for emergency assistance."
+    },
+    {
+        "page_number": 61,
+        "title": "Wounds",
+        "summary": "This page describes the different types of wounds, their characteristics, and how to treat them.",
+        "main_topic": "Wounds",
+        "subtopics": [
+            "Types of Wounds",
+            "Recognition",
+            "Actions to Take",
+            "Specific Wound Types"
+        ],
+        "offset_pages_used": [
+            60,
+            62
+        ],
+        "evidence_keywords": [
+            "wound",
+            "contusion",
+            "abrasion",
+            "incision",
+            "laceration",
+            "avulsion",
+            "amputation",
+            "bleeding",
+            "internal bleeding",
+            "external bleeding"
+        ],
+        "retrieval_context": "This page would be useful when treating wounds, recognizing symptoms of different types of wounds, or performing first aid on a casualty with a wound."
+    },
+    {
+        "page_number": 62,
+        "title": "Wound Types and Treatment",
+        "summary": "This page describes different types of wounds, including incision, laceration, avulsion, and amputation, as well as bites and stings.",
+        "main_topic": "Wounds",
+        "subtopics": [
+            "Incision",
+            "Laceration",
+            "Avulsion",
+            "Amputation",
+            "Bites and Stings"
+        ],
+        "offset_pages_used": [
+            61,
+            63
+        ],
+        "evidence_keywords": [
+            "incision",
+            "laceration",
+            "avulsion",
+            "amputation",
+            "bites",
+            "stings",
+            "bleeding",
+            "infection",
+            "contamination"
+        ],
+        "retrieval_context": "This page would be useful when treating wounds caused by sharp edges, crushing forces, or penetrating objects, or when dealing with bites and stings. It is also relevant for recognizing symptoms of contusions and abrasions, and for taking appropriate actions to treat these injuries."
+    },
+    {
+        "page_number": 63,
+        "title": "Bites and Stings",
+        "summary": "Guidance on treating bites and stings, including actions to take and procedures for different types of wounds.",
+        "main_topic": "Bites and Stings",
+        "subtopics": [
+            "Actions to Take",
+            "Contusion",
+            "Abrasion",
+            "Incision and Laceration",
+            "Avulsion"
+        ],
+        "offset_pages_used": [
+            62,
+            64
+        ],
+        "evidence_keywords": [
+            "bite",
+            "sting",
+            "swelling",
+            "discolouration",
+            "pain",
+            "tenderness",
+            "allergic reaction",
+            "contusion",
+            "abrasion",
+            "incision",
+            "laceration",
+            "avulsion"
+        ],
+        "retrieval_context": "This page would be useful when treating bites and stings, including recognizing symptoms, taking actions to treat wounds, and identifying when to seek medical help."
+    },
+    {
+        "page_number": 64,
+        "title": "Penetrating Object and Amputation",
+        "summary": "Instructions for managing penetrating object injuries and amputations, including bleeding control, wound stabilization, and preserving the amputated part.",
+        "main_topic": "Penetrating Object and Amputation",
+        "subtopics": [
+            "Control bleeding by applying direct pressure with clean dressing around the bleeding edges of the wound.",
+            "Stabilise the embedded object if its movement cause more pain or bleeding.",
+            "Apply paddings that would stabilise the protruding object while controlling the bleeding around the edges.",
+            "Bandage over the pads around or over the embedded object without pushing the object deeper.",
+            "Rest the injured part in a comfortable position.",
+            "Apply a tourniquet and treat the casualty for shock.",
+            "Find the amputated part and preserve it as described in figure 50.",
+            "Wrap the amputated part in dry clean gauze or cloth, place it in a small plastic bag, and place the plastic bag in a container of ice."
+        ],
+        "offset_pages_used": [
+            63,
+            65
+        ],
+        "evidence_keywords": [
+            "penetrating object",
+            "amputation",
+            "bleeding control",
+            "tourniquet",
+            "amputated part",
+            "wound stabilization"
+        ],
+        "retrieval_context": "This page would be useful in emergency situations where a penetrating object injury or amputation occurs, such as in a workplace accident or during outdoor activities. The user would need to act quickly to control bleeding, stabilize the wound, and preserve the amputated part to ensure proper treatment and minimize complications."
+    },
+    {
+        "page_number": 65,
+        "title": "Bites and Stings",
+        "summary": "Guidance on treating bites and stings from various animals, including bees, scorpions, snakes, and jellyfish.",
+        "main_topic": "Bites and Stings",
+        "subtopics": [
+            "Bee Sting",
+            "Scorpion Sting",
+            "Snake Bite",
+            "Jellyfish Sting"
+        ],
+        "offset_pages_used": [
+            64,
+            66
+        ],
+        "evidence_keywords": [
+            "bee sting",
+            "scorpion sting",
+            "snake bite",
+            "jellyfish sting",
+            "allergic reaction",
+            "venom",
+            "tourniquet",
+            "pressure bandage"
+        ],
+        "retrieval_context": "This page would be useful in situations where a person has been bitten or stung by an animal, such as a bee sting, scorpion sting, snake bite, or jellyfish sting. It is also relevant for individuals who need to treat bites and stings in emergency situations, such as first responders or medical professionals."
+    },
+    {
+        "page_number": 66,
+        "title": "Animal Bites",
+        "summary": "Guidance on treating animal bites, including bee stings, scorpion stings, snake bites, and jellyfish stings.",
+        "main_topic": "Animal Bites",
+        "subtopics": [
+            "Call 995 for SCDF",
+            "Wash the wound with running water",
+            "Control bleeding by applying direct pressure",
+            "Treat for signs of shock",
+            "Remove bee stinger",
+            "Apply cold compress",
+            "Monitor for allergic reaction",
+            "Immobilize the injured area",
+            "Call 995 for SCDF",
+            "Monitor for allergic reaction",
+            "Calm the casualty",
+            "DO NOT suck the bite wound or apply tourniquet",
+            "Immobilize the bitten area",
+            "Apply pressure bandages",
+            "Call 995 for SCDF",
+            "Pour large amounts of vinegar or sea water",
+            "Immersion of the wounded part into warm water",
+            "Monitor the casualty for difficulty in breathing"
+        ],
+        "offset_pages_used": [
+            65,
+            67
+        ],
+        "evidence_keywords": [
+            "animal bite",
+            "bee sting",
+            "scorpion sting",
+            "snake bite",
+            "jellyfish sting",
+            "bleeding",
+            "pressure bandage",
+            "immobilize",
+            "allergic reaction"
+        ],
+        "retrieval_context": "This page would be useful when treating animal bites, such as bee stings, scorpion stings, snake bites, or jellyfish stings, and when dealing with bleeding, pressure bandages, and signs of shock."
+    },
+    {
+        "page_number": 67,
+        "title": "Bandaging and Dressings",
+        "summary": "This page provides information on bandaging and dressings, including types of dressings, bandages, and how to apply them.",
+        "main_topic": "Bandaging and Dressings",
+        "subtopics": [
+            "Types of Dressings",
+            "Types of Bandages",
+            "Applying Dressings and Bandages",
+            "Important Notes"
+        ],
+        "offset_pages_used": [
+            66,
+            68
+        ],
+        "evidence_keywords": [
+            "bandaging",
+            "dressings",
+            "plasters",
+            "absorbent gauze",
+            "crepe bandages",
+            "triangular bandages",
+            "tourniquet"
+        ],
+        "retrieval_context": "This page would be useful when treating minor wounds, applying dressings to control bleeding, or immobilizing injured limbs."
+    },
+    {
+        "page_number": 68,
+        "title": "Bandages and Dressings",
+        "summary": "This page explains the use and application of bandages and dressings in first aid, including crepe bandages, triangular bandages, dressings, and how to use them to control bleeding, prevent infection, and support injured limbs.",
+        "main_topic": "Bandages and Dressings",
+        "subtopics": [
+            "Crepe Bandages",
+            "Triangular Bandages",
+            "Dressings",
+            "Important Notes"
+        ],
+        "offset_pages_used": [
+            67,
+            69
+        ],
+        "evidence_keywords": [
+            "crepe bandages",
+            "triangular bandages",
+            "dressings",
+            "bandaging",
+            "bleeding control",
+            "infection prevention"
+        ],
+        "retrieval_context": "This page would be useful when treating injuries that require bandaging, such as cuts, scrapes, or broken limbs, or when trying to control bleeding or prevent infection."
+    },
+    {
+        "page_number": 69,
+        "title": "Triangular Bandages",
+        "summary": "This page explains the use and application of triangular bandages, including their different folds, uses, and how to tie a reef knot.",
+        "main_topic": "Triangular Bandages",
+        "subtopics": [
+            "Different Folds of a Triangular Bandage",
+            "Triangular Bandages: Uses and Applications",
+            "Tying a Reef Knot",
+            "Making a Ring Pad"
+        ],
+        "offset_pages_used": [
+            68,
+            70
+        ],
+        "evidence_keywords": [
+            "triangular bandage",
+            "arm sling",
+            "immobilisation",
+            "reef knot",
+            "ring pad",
+            "tourniquet"
+        ],
+        "retrieval_context": "This page would be useful when treating injuries that require immobilisation, such as arm slings or tourniquets, or when securing bandages with a reef knot."
+    },
+    {
+        "page_number": 70,
+        "title": "First Aid Procedures",
+        "summary": "This page provides instructions on tying a Reef Knot, making a Ring Pad, and applying a Crepe Bandage.",
+        "main_topic": "First Aid Procedures",
+        "subtopics": [
+            "Tying a Reef Knot",
+            "Making a Ring Pad",
+            "Applying a Crepe Bandage"
+        ],
+        "offset_pages_used": [
+            69,
+            71
+        ],
+        "evidence_keywords": [
+            "Reef Knot",
+            "Ring Pad",
+            "Crepe Bandage",
+            "Triangular Bandage",
+            "Embedded Object",
+            "Immobilization",
+            "Slings"
+        ],
+        "retrieval_context": "This page would be useful in situations where a user needs to secure bandages, immobilize an embedded object, or apply a crepe bandage to control bleeding. It is relevant for first aid training, emergency response, and medical procedures."
+    },
+    {
+        "page_number": 71,
+        "title": "Applying a Crepe Bandage",
+        "summary": "A step-by-step guide on applying a crepe bandage to secure dressings in place and control bleeding.",
+        "main_topic": "Crepe Bandage Application",
+        "subtopics": [
+            "Applying a crepe bandage to secure dressings in place",
+            "Ensuring bleeding has been controlled before application",
+            "Applying a crepe bandage to joints such as elbows, palms, wrists, knees, and ankles/feet"
+        ],
+        "offset_pages_used": [
+            70,
+            72
+        ],
+        "evidence_keywords": [
+            "Crepe bandage",
+            "Securing dressings",
+            "Controlling bleeding",
+            "Joint application"
+        ],
+        "retrieval_context": "This page would be useful when a user needs to apply a crepe bandage to control bleeding and secure dressings in place, particularly in situations involving straight limbs or joints."
+    },
+    {
+        "page_number": 72,
+        "title": "Applying a Large Arm Sling",
+        "summary": "A large arm sling provides comfort, immobilization, or support to an injured arm.",
+        "main_topic": "Applying a Large Arm Sling",
+        "subtopics": [
+            "Common uses",
+            "Application instructions",
+            "Palm position"
+        ],
+        "offset_pages_used": [
+            71,
+            73
+        ],
+        "evidence_keywords": [
+            "Large arm sling",
+            "Fracture",
+            "Immobilization",
+            "Support"
+        ],
+        "retrieval_context": "This page would be useful when treating a fracture or injury to the arm, such as a lower or upper arm fracture, or when providing immobilization or support to an injured arm."
+    },
+    {
+        "page_number": 73,
+        "title": "Applying an Elevation Sling",
+        "summary": "Applying an elevation sling to reduce swelling or control blood flow to the lower arm, wrist, or palm.",
+        "main_topic": "Applying an Elevation Sling",
+        "subtopics": [
+            "Fracture or dislocation of the shoulder or collarbone",
+            "Bleeding wounds to the lower arm, wrist, or palm",
+            "Fracture of the ribs"
+        ],
+        "offset_pages_used": [
+            72,
+            74
+        ],
+        "evidence_keywords": [
+            "elevation sling",
+            "swelling",
+            "blood flow",
+            "fracture",
+            "dislocation",
+            "bleeding wounds"
+        ],
+        "retrieval_context": "This page would be useful when treating injuries that require elevation to reduce swelling or control blood flow, such as fractures or dislocations of the shoulder or collarbone, bleeding wounds to the lower arm, wrist, or palm, or fractures of the ribs."
+    },
+    {
+        "page_number": 74,
+        "title": "Applying Eye Bandages",
+        "summary": "Instructions for applying an eye bandage to control bleeding and stabilize an impaled object.",
+        "main_topic": "Eye Injuries",
+        "subtopics": [
+            "Applying an eye pad over the cut eyelid",
+            "Applying an eye shield for small foreign bodies",
+            "Stabilizing an impaled object using ring pads",
+            "Applying the eye bandage as shown"
+        ],
+        "offset_pages_used": [
+            73,
+            75
+        ],
+        "evidence_keywords": [
+            "eye bandage",
+            "eye pad",
+            "impaled object",
+            "ring pads",
+            "bleeding control"
+        ],
+        "retrieval_context": "This page would be useful in situations where an eye injury is suspected, such as when a foreign body is present in the eye or an object is impaled in the eye. It is also relevant for individuals who need to apply an eye bandage to control bleeding and stabilize the object."
+    },
+    {
+        "page_number": 75,
+        "title": "Applying Bandages",
+        "summary": "Instructions for applying bandages to minor cuts, burns, and abrasions on various parts of the body.",
+        "main_topic": "First Aid Bandages",
+        "subtopics": [
+            "Applying a Hand Bandage",
+            "Applying an Elbow, Knee, or Foot Bandage",
+            "Applying an Eye Bandage",
+            "Applying a Torso Bandage",
+            "Applying a Tourniquet"
+        ],
+        "offset_pages_used": [
+            74,
+            76
+        ],
+        "evidence_keywords": [
+            "bandage",
+            "triangular bandage",
+            "crepe bandage",
+            "elevation sling",
+            "eye pad",
+            "eye shield",
+            "tourniquet"
+        ],
+        "retrieval_context": "This page would be useful in situations where minor cuts, burns, or abrasions need to be treated, such as in first aid for children, sports injuries, or workplace accidents."
+    },
+    {
+        "page_number": 76,
+        "title": "Applying a Tourniquet",
+        "summary": "This page provides instructions on how to apply a tourniquet to control life-threatening external hemorrhage from limb injury.",
+        "main_topic": "Tourniquet Application",
+        "subtopics": [
+            "Severe external limb bleeding",
+            "Multiple casualties with extremity hemorrhage",
+            "Extreme life-threatening limb hemorrhage",
+            "Applying the tourniquet",
+            "Important notes when applying a tourniquet"
+        ],
+        "offset_pages_used": [
+            75,
+            77
+        ],
+        "evidence_keywords": [
+            "Tourniquet",
+            "External hemorrhage",
+            "Limb injury",
+            "Life-threatening hemorrhage",
+            "Tourniquet application"
+        ],
+        "retrieval_context": "This page would be useful in emergency situations where a person is experiencing severe external limb bleeding or has a life-threatening limb injury, and needs to apply a tourniquet to control the bleeding."
+    },
+    {
+        "page_number": 77,
+        "title": "Tourniquet Application",
+        "summary": "Important notes on applying a tourniquet to control severe external limb bleeding.",
+        "main_topic": "Tourniquet Application",
+        "subtopics": [
+            "Use a broad-fold triangular bandage",
+            "Apply direct pressure on the wound",
+            "Place the tourniquet 5cm from the bleeding site",
+            "Rotate the stick until bleeding is stopped",
+            "Secure the stick to maintain tightening effect",
+            "Record application time and inform SCDF officer"
+        ],
+        "offset_pages_used": [
+            76,
+            78
+        ],
+        "evidence_keywords": [
+            "tourniquet application",
+            "improvised tourniquet",
+            "direct pressure",
+            "bleeding site",
+            "joint application"
+        ],
+        "retrieval_context": "This page would be useful in situations where severe external limb bleeding needs to be controlled, such as in cases of limb injury, amputation, or mangled limb with multiple bleeding points."
+    },
+    {
+        "page_number": 78,
+        "title": "Musculoskeletal Injuries",
+        "summary": "Provides information on fracture and dislocation, soft tissue injuries, and immobilisation/bandaging of musculoskeletal injuries.",
+        "main_topic": "Musculoskeletal Injuries",
+        "subtopics": [
+            "Fracture and Dislocation",
+            "Soft Tissue Injuries",
+            "Immobilisation/Bandaging"
+        ],
+        "offset_pages_used": [
+            77,
+            79
+        ],
+        "evidence_keywords": [
+            "tourniquet",
+            "fracture",
+            "dislocation",
+            "soft tissue injury",
+            "immobilisation",
+            "bandaging"
+        ],
+        "retrieval_context": "This page would be useful when treating musculoskeletal injuries, such as fractures and dislocations, and when applying a tourniquet to control bleeding."
+    },
+    {
+        "page_number": 79,
+        "title": "Musculoskeletal System",
+        "summary": "The musculoskeletal system provides structure, support, stability, and movement to the body.",
+        "main_topic": "Musculoskeletal System",
+        "subtopics": [
+            "The musculoskeletal system comprises bones, muscles, tendons, cartilage, ligaments, joints, and connective tissue.",
+            "Infants are born with 300 bones, which eventually fuse to form the adult skeleton with 206 bones.",
+            "The musculoskeletal system protects vital organs, enables movement, and supports abdominal organs."
+        ],
+        "offset_pages_used": [
+            78,
+            80
+        ],
+        "evidence_keywords": [
+            "musculoskeletal system",
+            "bones",
+            "muscles",
+            "tendons",
+            "cartilage",
+            "ligaments",
+            "joints",
+            "connective tissue",
+            "fracture",
+            "dislocation"
+        ],
+        "retrieval_context": "This page would be useful when treating musculoskeletal injuries, such as fractures and dislocations, or when understanding the structure and function of the musculoskeletal system."
+    },
+    {
+        "page_number": 80,
+        "title": "Fracture and Dislocation",
+        "summary": "Information on fractures, dislocations, and their types, causes, and treatment.",
+        "main_topic": "Fracture and Dislocation",
+        "subtopics": [
+            "Types of Fracture",
+            "Causes",
+            "Actions to Take"
+        ],
+        "offset_pages_used": [
+            79,
+            81
+        ],
+        "evidence_keywords": [
+            "fracture",
+            "dislocation",
+            "closed fracture",
+            "open fracture",
+            "complicated fracture",
+            "direct force",
+            "indirect force",
+            "pain",
+            "tenderness",
+            "swelling",
+            "bruising"
+        ],
+        "retrieval_context": "This page would be useful when recognizing symptoms of fractures and dislocations, such as pain, swelling, and bruising, or when treating open fractures and dislocations, including applying pressure and securing the injured area."
+    },
+    {
+        "page_number": 81,
+        "title": "Fracture and Dislocation",
+        "summary": "This page provides information on fractures, dislocations, and their treatment, including types of fractures, causes, and actions to take.",
+        "main_topic": "Fracture and Dislocation",
+        "subtopics": [
+            "Types of Fracture",
+            "Causes",
+            "Actions to Take",
+            "Use of Splints"
+        ],
+        "offset_pages_used": [
+            80,
+            82
+        ],
+        "evidence_keywords": [
+            "fracture",
+            "dislocation",
+            "closed fracture",
+            "open fracture",
+            "complicated fracture",
+            "direct force",
+            "indirect force",
+            "splint"
+        ],
+        "retrieval_context": "This page would be useful in situations where a person has suffered a fracture or dislocation, such as when recognizing the symptoms, taking actions to stabilize the injury, or using a splint to immobilize the affected area."
+    },
+    {
+        "page_number": 82,
+        "title": "Supporting Injuries",
+        "summary": "Guidance on supporting and immobilizing injuries, including splinting and managing closed fractures, dislocations, and open fractures.",
+        "main_topic": "Supporting Injuries",
+        "subtopics": [
+            "Splinting",
+            "Closed Fracture Management",
+            "Dislocation Management",
+            "Open Fracture Management",
+            "Specific Bone Injuries"
+        ],
+        "offset_pages_used": [
+            81,
+            83
+        ],
+        "evidence_keywords": [
+            "splinting",
+            "closed fracture",
+            "dislocation",
+            "open fracture",
+            "skull fracture",
+            "immobilization",
+            "bandaging",
+            "circulation check"
+        ],
+        "retrieval_context": "This page would be useful in emergency situations where a person has suffered a fracture, dislocation, or open wound, and needs guidance on how to provide basic care and support until medical help arrives."
+    },
+    {
+        "page_number": 83,
+        "title": "Splinting and Managing Bone Injuries",
+        "summary": "This page provides information on splinting, managing bone injuries, and recognizing symptoms of skull fractures, closed fractures, dislocations, jaw fractures/dislocations, and other related injuries.",
+        "main_topic": "Bone Injuries and Splinting",
+        "subtopics": [
+            "Types of Splints",
+            "Important Notes",
+            "Specific Bone Injuries",
+            "Use of Splints",
+            "Recognition and Actions to Take"
+        ],
+        "offset_pages_used": [
+            82,
+            84
+        ],
+        "evidence_keywords": [
+            "splinting",
+            "bone injuries",
+            "skull fractures",
+            "closed fractures",
+            "dislocations",
+            "jaw fractures/dislocations",
+            "immobilization",
+            "support",
+            "recognition",
+            "actions to take"
+        ],
+        "retrieval_context": "This page would be useful when treating or managing bone injuries, recognizing symptoms of specific injuries, and applying splints to immobilize and support injured limbs or spines."
+    },
+    {
+        "page_number": 84,
+        "title": "Head and Neck Injuries",
+        "summary": "Guidance on recognizing and treating head and neck injuries, including wounds, fractures, and bleeding.",
+        "main_topic": "Head and Neck Injuries",
+        "subtopics": [
+            "Recognition",
+            "Actions to Take",
+            "Important Notes",
+            "Specific Bone Injuries"
+        ],
+        "offset_pages_used": [
+            83,
+            85
+        ],
+        "evidence_keywords": [
+            "wound",
+            "bruise",
+            "head injury",
+            "bleeding",
+            "cerebro-spinal fluid",
+            "cerebral hemorrhage",
+            "skull fracture",
+            "collar bone fracture",
+            "jaw fracture",
+            "dislocation"
+        ],
+        "retrieval_context": "This page would be useful in emergency situations where a person has suffered a head or neck injury, such as a fall, accident, or assault. The user would need to recognize the symptoms and take immediate action to stabilize the injury and prevent further harm."
+    },
+    {
+        "page_number": 85,
+        "title": "Collar Bone Fracture",
+        "summary": "Collar bone fracture recognition and treatment instructions.",
+        "main_topic": "Collar Bone Fracture",
+        "subtopics": [
+            "Call 995 for SCDF",
+            "Sit the casualty up with head well forward",
+            "Ask the casualty to hold a soft pad firmly in place to support the jaw"
+        ],
+        "offset_pages_used": [
+            84,
+            86
+        ],
+        "evidence_keywords": [
+            "clavicle fracture",
+            "collar bone fracture",
+            "indirect force",
+            "transmitted fall",
+            "soft pad",
+            "elevation sling"
+        ],
+        "retrieval_context": "This page would be useful when recognizing the symptoms of a collar bone fracture, such as sharp pain and deformity at the injury site, and when taking actions to stabilize the injury, such as applying an elevation sling and monitoring vital signs."
+    },
+    {
+        "page_number": 86,
+        "title": "Shoulder Dislocation",
+        "summary": "A fall or wrenching force can cause the humerus to dislocate from the shoulder joint, leading to acute pain and limited mobility.",
+        "main_topic": "Shoulder Dislocation",
+        "subtopics": [
+            "Recognition",
+            "Actions to take",
+            "DO NOT attempt to replace the bone into its socket",
+            "Apply an elevation sling or large arm sling",
+            "Insert soft padding between the arm and the chest",
+            "Apply a broad bandage across the arm and chest"
+        ],
+        "offset_pages_used": [
+            85,
+            87
+        ],
+        "evidence_keywords": [
+            "Shoulder dislocation",
+            "Humerus dislocation",
+            "Pain",
+            "Swelling",
+            "Loss of rounded contour of the shoulder",
+            "Inability to raise the arm"
+        ],
+        "retrieval_context": "This page would be useful when recognizing the symptoms of a shoulder dislocation, such as pain, swelling, and loss of rounded contour of the shoulder, and when taking actions to stabilize the injury, such as applying an elevation sling and inserting soft padding between the arm and the chest."
+    },
+    {
+        "page_number": 87,
+        "title": "Rib Fracture",
+        "summary": "Symptoms and actions to take for a fractured rib, including pain, shallow breathing, and open wounds.",
+        "main_topic": "Rib Fracture",
+        "subtopics": [
+            "Actions to Take",
+            "For a fractured rib",
+            "For open (puncture) chest wound or multiple rib fractures"
+        ],
+        "offset_pages_used": [
+            86,
+            88
+        ],
+        "evidence_keywords": [
+            "pain at the fracture site",
+            "shallow breathing",
+            "open wound",
+            "rib fracture",
+            "chest wound",
+            "multiple rib fractures"
+        ],
+        "retrieval_context": "A person experiencing severe chest pain, shallow breathing, or an open wound may need to access this page for guidance on how to provide first aid."
+    },
+    {
+        "page_number": 88,
+        "title": "Upper Arm Fracture",
+        "summary": "A fracture of the upper arm (humerus) may be caused by a direct blow or a fall, leading to pain, swelling, and difficulty raising the arm.",
+        "main_topic": "Upper Arm Fracture",
+        "subtopics": [
+            "Actions to Take",
+            "Recognition"
+        ],
+        "offset_pages_used": [
+            87,
+            89
+        ],
+        "evidence_keywords": [
+            "pain and tenderness",
+            "swelling and bruising",
+            "difficulty in raising the arm"
+        ],
+        "retrieval_context": "This page would be useful when treating an upper arm fracture, recognizing symptoms such as pain and swelling, and taking appropriate actions to immobilize the injury."
+    },
+    {
+        "page_number": 89,
+        "title": "Elbow Fracture",
+        "summary": "Guidance on recognizing and treating elbow fractures, including actions to take and procedures to follow.",
+        "main_topic": "Elbow Fracture",
+        "subtopics": [
+            "Actions to Take",
+            "Forearm and Wrist Fracture",
+            "Recognition"
+        ],
+        "offset_pages_used": [
+            88,
+            90
+        ],
+        "evidence_keywords": [
+            "elbow fracture",
+            "forearm fracture",
+            "wrist fracture",
+            "Colles' fracture",
+            "dinner fork deformity"
+        ],
+        "retrieval_context": "This page would be useful in situations where a person has suffered an elbow fracture, such as after a fall or direct blow, and needs guidance on how to treat the injury and seek medical attention."
+    },
+    {
+        "page_number": 90,
+        "title": "Forearm and Wrist Fracture",
+        "summary": "Actions to take for a forearm and wrist fracture, including recognition and treatment procedures.",
+        "main_topic": "Forearm and Wrist Fracture",
+        "subtopics": [
+            "Recognition",
+            "Actions to Take",
+            "Gentle Support and Padding",
+            "Bandaging and Immobilization"
+        ],
+        "offset_pages_used": [
+            89,
+            91
+        ],
+        "evidence_keywords": [
+            "Forearm fracture",
+            "Wrist fracture",
+            "Colles' fracture",
+            "Dinner fork deformity",
+            "Bandaging and immobilization"
+        ],
+        "retrieval_context": "This page would be useful when treating a forearm and wrist fracture, recognizing symptoms such as pain, bruising, and swelling, and taking actions to immobilize and support the injured area."
+    },
+    {
+        "page_number": 91,
+        "title": "Thigh Fracture",
+        "summary": "A fracture of the shaft of the thigh bone may be caused by a direct blow, resulting in severe blood loss and shock.",
+        "main_topic": "Thigh Fracture",
+        "subtopics": [
+            "Recognition",
+            "Actions to Take"
+        ],
+        "offset_pages_used": [
+            90,
+            92
+        ],
+        "evidence_keywords": [
+            "thigh fracture",
+            "blood loss",
+            "shock",
+            "bruising",
+            "swelling",
+            "immobilization"
+        ],
+        "retrieval_context": "This page would be useful in emergency situations where a thigh fracture is suspected, such as when a person is injured in a car accident or falls from a height, and symptoms include severe pain, pallor, and swelling."
+    },
+    {
+        "page_number": 92,
+        "title": "Lower Leg and Ankle Fracture",
+        "summary": "Guidance on recognizing and treating lower leg and ankle fractures, including actions to take and procedures to follow.",
+        "main_topic": "Lower Leg and Ankle Fracture",
+        "subtopics": [
+            "Recognition",
+            "Actions to Take",
+            "Fig. 81 – Parts of the Lower leg and Ankle"
+        ],
+        "offset_pages_used": [
+            91,
+            93
+        ],
+        "evidence_keywords": [
+            "lower leg fracture",
+            "ankle fracture",
+            "tibia fracture",
+            "fibula fracture",
+            "deformity",
+            "pain",
+            "tenderness",
+            "swelling",
+            "bruising",
+            "immobilization",
+            "bandaging"
+        ],
+        "retrieval_context": "This page would be useful in situations where a person has suffered a lower leg or ankle fracture, such as after a vehicle accident or a fall, and needs guidance on how to stabilize and treat the injury."
+    },
+    {
+        "page_number": 93,
+        "title": "Foot Fracture",
+        "summary": "Foot fractures require hospital treatment and need immediate attention.",
+        "main_topic": "Foot Fracture",
+        "subtopics": [
+            "Recognition",
+            "Actions to Take"
+        ],
+        "offset_pages_used": [
+            92,
+            94
+        ],
+        "evidence_keywords": [
+            "deformity of the foot",
+            "pain and tenderness",
+            "bruising and swelling",
+            "call 995 for SCDF"
+        ],
+        "retrieval_context": "When recognizing symptoms of a foot fracture, such as deformity, pain, and swelling, and need to know the actions to take, such as calling 995 for SCDF and elevating the foot to minimize swelling."
+    },
+    {
+        "page_number": 94,
+        "title": "Soft Tissue Injuries",
+        "summary": "Information on strains, sprains, and muscle contusions, including symptoms, causes, and treatment procedures.",
+        "main_topic": "Soft Tissue Injuries",
+        "subtopics": [
+            "Strain",
+            "Muscle Contusion",
+            "Muscle Cramp",
+            "Sprain",
+            "Actions to Take"
+        ],
+        "offset_pages_used": [
+            93,
+            95
+        ],
+        "evidence_keywords": [
+            "strain",
+            "sprain",
+            "muscle contusion",
+            "muscle cramp",
+            "sprain treatment",
+            "RICE treatment"
+        ],
+        "retrieval_context": "This page would be useful when treating soft tissue injuries such as strains, sprains, and muscle contusions, including recognizing symptoms, causes, and taking appropriate actions."
+    },
+    {
+        "page_number": 95,
+        "title": "Strain, Sprain, and Contusion",
+        "summary": "Information on strains, sprains, and contusions, including symptoms, actions to take, and RICE treatment.",
+        "main_topic": "Soft Tissue Injuries",
+        "subtopics": [
+            "Actions to take",
+            "RICE Treatment",
+            "Strain and Muscle Contusion",
+            "Muscle Cramp",
+            "Sprain"
+        ],
+        "offset_pages_used": [
+            94,
+            96
+        ],
+        "evidence_keywords": [
+            "RICE treatment",
+            "Strain",
+            "Sprain",
+            "Muscle Contusion",
+            "Muscle Cramp",
+            "Soft Tissue Injuries"
+        ],
+        "retrieval_context": "This page would be useful when treating strains, sprains, and contusions, such as recognizing symptoms, applying RICE treatment, and providing actions to take for each condition."
+    },
+    {
+        "page_number": 96,
+        "title": "Sprain Treatment",
+        "summary": "Treatment for sprain injuries, including RICE procedure and immobilization.",
+        "main_topic": "Sprain",
+        "subtopics": [
+            "Remove footwear gently",
+            "Apply RICE treatment",
+            "Immobilize the joint",
+            "Call 995 for SCDF"
+        ],
+        "offset_pages_used": [
+            95,
+            97
+        ],
+        "evidence_keywords": [
+            "RICE",
+            "Rest",
+            "Ice",
+            "Compression",
+            "Elevation",
+            "Immobilization",
+            "Fracture",
+            "SCDF"
+        ],
+        "retrieval_context": "Useful when treating sprain injuries, recognizing symptoms such as acute pain and tenderness, and taking actions like applying RICE treatment and immobilizing the joint."
+    },
+    {
+        "page_number": 97,
+        "title": "RICE Treatment",
+        "summary": "The RICE treatment is used for contusions, strains, sprains, dislocations, and fractures.",
+        "main_topic": "RICE Treatment",
+        "subtopics": [
+            "Rest",
+            "Ice",
+            "Compression",
+            "Elevation"
+        ],
+        "offset_pages_used": [
+            96,
+            98
+        ],
+        "evidence_keywords": [
+            "RICE",
+            "Rest",
+            "Ice",
+            "Compression",
+            "Elevation"
+        ],
+        "retrieval_context": "This page would be useful when treating sprains, strains, contusions, or fractures, and when applying the RICE treatment to reduce swelling, bruising, and pain."
+    },
+    {
+        "page_number": 98,
+        "title": "Immobilisation/Bandaging",
+        "summary": "Guidance on immobilizing injured parts to reduce pain and prevent further injury.",
+        "main_topic": "Immobilisation/Bandaging",
+        "subtopics": [
+            "Straightening of angulated fractures",
+            "Upper body immobilisation",
+            "Lower body immobilisation",
+            "Splinting and bandaging techniques",
+            "Specific procedures for different injuries"
+        ],
+        "offset_pages_used": [
+            97,
+            99
+        ],
+        "evidence_keywords": [
+            "Immobilisation",
+            "Bandaging",
+            "Splints",
+            "RICE Treatment",
+            "Elevation sling",
+            "Broad-fold bandage",
+            "Figure-of-eight bandage"
+        ],
+        "retrieval_context": "This page would be useful when treating injuries such as dislocated shoulders, fractured collar bones, or lower arm fractures, and when considering the casualty's level of comfort and cooperation."
+    },
+    {
+        "page_number": 99,
+        "title": "Immobilisation Techniques",
+        "summary": "This page provides guidance on immobilisation techniques for various injuries, including elbow fractures, upper body fractures, and lower body fractures.",
+        "main_topic": "Immobilisation",
+        "subtopics": [
+            "Immobilisation of the Lower Body",
+            "Immobilisation of the Upper Body",
+            "Immobilisation for Thigh (Femur) or Lower Leg (Tibia/Fibula) Fractures"
+        ],
+        "offset_pages_used": [
+            98,
+            100
+        ],
+        "evidence_keywords": [
+            "immobilisation",
+            "splinting",
+            "bandaging",
+            "figure-of-eight bandage",
+            "triangular bandages"
+        ],
+        "retrieval_context": "This page would be useful when treating elbow fractures, upper body fractures, or lower body fractures, and when considering the importance of immobilisation in reducing pain and preventing further injury."
+    },
+    {
+        "page_number": 100,
+        "title": "Immobilisation for Lower Body Fractures",
+        "summary": "Instructions for immobilizing lower body fractures, including splinting and bandaging techniques.",
+        "main_topic": "Immobilisation for Thigh (Femur) or Lower Leg (Tibia/Fibula) Fractures",
+        "subtopics": [
+            "Find appropriate splint and pad between the legs",
+            "Figure-of-eight bandage at the ankles",
+            "1 broad-fold triangular bandage at the knees",
+            "1 narrow-fold bandage above the fracture site",
+            "1 narrow-fold bandage below the fracture site",
+            "All knots to end off on the uninjured side"
+        ],
+        "offset_pages_used": [
+            99,
+            101
+        ],
+        "evidence_keywords": [
+            "Immobilisation",
+            "Splinting",
+            "Bandaging",
+            "Thigh fracture",
+            "Lower leg fracture",
+            "Figure-of-eight bandage"
+        ],
+        "retrieval_context": "This page would be useful when treating lower body fractures, such as thigh or lower leg fractures, and need to immobilize the area to prevent further injury."
+    },
+    {
+        "page_number": 101,
+        "title": "Burn Injuries",
+        "summary": "This page provides information on the classification and treatment of burns, including the depth and severity of burns.",
+        "main_topic": "Burn Injuries",
+        "subtopics": [
+            "Burn Depth and Severity",
+            "Classification and Treatment of Burns"
+        ],
+        "offset_pages_used": [
+            100,
+            102
+        ],
+        "evidence_keywords": [
+            "burn depth",
+            "burn severity",
+            "burn classification",
+            "burn treatment"
+        ],
+        "retrieval_context": "This page would be useful when treating a burn injury, including determining the depth and severity of the burn, and providing appropriate treatment and care."
+    },
+    {
+        "page_number": 102,
+        "title": "Skin Structure and Burns",
+        "summary": "This page explains the skin structure and how to identify and treat burns.",
+        "main_topic": "Burn Injuries",
+        "subtopics": [
+            "Skin Structure",
+            "Burn Depth and Severity",
+            "Recognition and Treatment"
+        ],
+        "offset_pages_used": [
+            101,
+            103
+        ],
+        "evidence_keywords": [
+            "burns",
+            "skin structure",
+            "burn depth",
+            "superficial burn",
+            "partial thickness burn",
+            "full thickness burn",
+            "treatment",
+            "cooling",
+            "covering",
+            "medical aid"
+        ],
+        "retrieval_context": "This page would be useful when treating burns, identifying burn depth and severity, and understanding the skin structure. It is relevant for first aid situations involving burns, scalds, and other skin injuries."
+    },
+    {
+        "page_number": 103,
+        "title": "Burn Depth and Severity",
+        "summary": "Determines the severity of burns and scalds, including recognition, burn depth, and treatment guidelines.",
+        "main_topic": "Burns and Scalds",
+        "subtopics": [
+            "Recognition",
+            "Burn Depth",
+            "Superficial Burn (1st Degree)",
+            "Partial Thickness Burn (2nd Degree)",
+            "Full Thickness Burn (3rd Degree)",
+            "Important Notes"
+        ],
+        "offset_pages_used": [
+            102,
+            104
+        ],
+        "evidence_keywords": [
+            "burn depth",
+            "severe burns",
+            "scalds",
+            "superficial burns",
+            "partial thickness burns",
+            "full thickness burns",
+            "treatment guidelines"
+        ],
+        "retrieval_context": "This page would be useful when recognizing the severity of burns and scalds, determining the extent of burns, and providing treatment guidelines for different types of burns."
+    },
+    {
+        "page_number": 104,
+        "title": "Burns and Scalds",
+        "summary": "Information on the severity, classification, and treatment of burns and scalds.",
+        "main_topic": "Burns and Scalds",
+        "subtopics": [
+            "Severity of Burns",
+            "Classification and Treatment of Burns",
+            "Actions to Take for Different Types of Burns"
+        ],
+        "offset_pages_used": [
+            103,
+            105
+        ],
+        "evidence_keywords": [
+            "Rule-of-Nines",
+            "Palmar Method",
+            "Burn Depth",
+            "Thermal burns",
+            "Scalding",
+            "Chemical burns",
+            "Electrical burns",
+            "Radiation burns",
+            "First aid for burns"
+        ],
+        "retrieval_context": "This page would be useful when treating burns and scalds, recognizing burn depth, and determining the severity of a burn. It is also relevant for understanding the different types of burns and how to provide first aid for each type."
+    },
+    {
+        "page_number": 105,
+        "title": "Classification and Treatment of Burns",
+        "summary": "This page provides information on the classification and treatment of burns, including actions to take for different types of burns and special areas.",
+        "main_topic": "Burns",
+        "subtopics": [
+            "Classification of Burns Injuries",
+            "Actions to Take",
+            "Full Thickness Burn (3rd Degree)",
+            "Burns in Special Areas",
+            "Thermal Burns and Scalding"
+        ],
+        "offset_pages_used": [
+            104,
+            106
+        ],
+        "evidence_keywords": [
+            "thermal burns",
+            "scalding",
+            "chemical burns",
+            "electrical burns",
+            "radiation burns",
+            "superficial burn",
+            "partial thickness burn",
+            "full thickness burn",
+            "burns in special areas"
+        ],
+        "retrieval_context": "This page would be useful when treating burns, especially in situations where the burn is severe, covers a large area, or is in a sensitive area such as the face or mouth. It is also useful for understanding the classification and treatment of different types of burns."
+    },
+    {
+        "page_number": 106,
+        "title": "Burn Care and Treatment",
+        "summary": "Guidelines for treating burns, including removal of stuck items, cooling, and seeking medical attention.",
+        "main_topic": "Burn Care and Treatment",
+        "subtopics": [
+            "Remove stuck items",
+            "Cool the injured area",
+            "Seek medical attention",
+            "Flush with water",
+            "Remove constricting objects",
+            "Use sterile dressing",
+            "Cover with clean cloth",
+            "Treat for shock",
+            "Call 995 for SCDF",
+            "Flush with water for 15-20 minutes",
+            "Wear gloves and eye protection",
+            "Remove contaminated clothing",
+            "Cover with dry clean dressing"
+        ],
+        "offset_pages_used": [
+            105,
+            107
+        ],
+        "evidence_keywords": [
+            "burns",
+            "thermal burns",
+            "scalding",
+            "chemical burns",
+            "electrical burns",
+            "radiation burns",
+            "antiseptic preparation",
+            "ointment sprays",
+            "lotions",
+            "creams",
+            "sterile dressing",
+            "clean cloth",
+            "shock",
+            "SCDF",
+            "995"
+        ],
+        "retrieval_context": "This page would be useful in situations where a person has suffered a burn, such as in a fire or scalding accident, and needs guidance on how to treat the injury and seek medical attention."
+    },
+    {
+        "page_number": 107,
+        "title": "Burn Care and Treatment",
+        "summary": "Guidelines for treating various types of burns, including chemical, electrical, thermal, and radiation burns.",
+        "main_topic": "Burns",
+        "subtopics": [
+            "Chemical Burns",
+            "Electrical Burns",
+            "Thermal Burns and Scalding",
+            "Radiation Burns",
+            "Burns in Special Areas"
+        ],
+        "offset_pages_used": [
+            106,
+            108
+        ],
+        "evidence_keywords": [
+            "Chemical Burns",
+            "Electrical Burns",
+            "Thermal Burns",
+            "Radiation Burns",
+            "Burns in Special Areas"
+        ],
+        "retrieval_context": "This page would be useful in situations where a person has suffered a burn injury, such as a chemical spill, electrical shock, or scalding, and needs guidance on how to treat the injury and prevent further harm."
+    },
+    {
+        "page_number": 108,
+        "title": "Radiation Burns",
+        "summary": "Treatment and care for radiation burns, including sunburn and heat disorders.",
+        "main_topic": "Radiation Burns",
+        "subtopics": [
+            "Remove the casualty from the sun or source of heat",
+            "Move to a cool and sheltered area or cover the affected parts with light clothing",
+            "Encourage the casualty to stay hydrated in small amounts at a time and cool the affected skin by dabbing with water",
+            "If signs of heat disorders are also present, treat the casualty accordingly (refer to Chapter 2) and call 995 for SCDF"
+        ],
+        "offset_pages_used": [
+            107,
+            109
+        ],
+        "evidence_keywords": [
+            "Radiation Burn",
+            "Sun Burn",
+            "Ultra Violet (UV) radiation",
+            "Heat Disorders",
+            "Chemical Burns"
+        ],
+        "retrieval_context": "This page would be useful when treating radiation burns, such as sunburn, and when dealing with heat disorders. It is also relevant for first aid responders who need to provide care for casualties with radiation burns."
+    },
+    {
+        "page_number": 109,
+        "title": "Eye Injuries",
+        "summary": "Guidance on treating eye injuries, including procedures for covering the eyes and seeking medical attention.",
+        "main_topic": "Eye Injuries",
+        "subtopics": [
+            "Cover both eyes with cold, wet pads",
+            "Seek medical attention immediately",
+            "Call 995 for SCDF"
+        ],
+        "offset_pages_used": [
+            108,
+            110
+        ],
+        "evidence_keywords": [
+            "eye injuries",
+            "eye cover",
+            "medical attention",
+            "SCDF"
+        ],
+        "retrieval_context": "This page would be useful in situations where a person has suffered an eye injury, such as a cut or burn, and needs guidance on how to treat the injury and seek medical help."
+    },
+    {
+        "page_number": 110,
+        "title": "Eye Injuries",
+        "summary": "Information on eye injuries, including causes, recognition, and treatment.",
+        "main_topic": "Eye Injuries",
+        "subtopics": [
+            "Causes of Eye Injuries",
+            "Recognition of Eye Injuries",
+            "Treatment of Eye Injuries"
+        ],
+        "offset_pages_used": [
+            109,
+            111
+        ],
+        "evidence_keywords": [
+            "penetrating eye injury",
+            "chemical burns",
+            "foreign bodies",
+            "blunt force trauma",
+            "eye injuries"
+        ],
+        "retrieval_context": "This page would be useful when treating eye injuries, recognizing symptoms of chemical burns, or understanding the causes of penetrating eye injuries."
+    },
+    {
+        "page_number": 111,
+        "title": "Eye Injuries",
+        "summary": "Causes, recognition, and treatment of eye injuries, including penetrating injuries, chemical burns, and blunt force trauma.",
+        "main_topic": "Eye Injuries",
+        "subtopics": [
+            "Penetrating Eye Injury",
+            "Chemical Burns",
+            "Blunt Force Trauma",
+            "Cuts to the Eye and Eyelid"
+        ],
+        "offset_pages_used": [
+            110,
+            112
+        ],
+        "evidence_keywords": [
+            "penetrating eye injury",
+            "chemical burns",
+            "blunt force trauma",
+            "cuts to the eye and eyelid",
+            "eye pad",
+            "eye shield",
+            "vitreous fluid",
+            "chemical burns to the eye"
+        ],
+        "retrieval_context": "This page would be useful when treating penetrating eye injuries, recognizing chemical burns, or dealing with blunt force trauma to the eyes. It is also relevant for individuals who have experienced cuts to the eye or eyelid, or for those who need to apply eye pads or eye shields to protect injured eyes."
+    },
+    {
+        "page_number": 112,
+        "title": "Eye Injuries",
+        "summary": "Guidance on recognizing and treating eye injuries, including penetrating eye injuries, chemical burns, foreign bodies, and blunt force trauma.",
+        "main_topic": "Eye Injuries",
+        "subtopics": [
+            "Penetrating Eye Injury",
+            "Chemical Burns",
+            "Foreign Bodies",
+            "Blunt Force Trauma",
+            "Cuts to the Eye and Eyelid"
+        ],
+        "offset_pages_used": [
+            111,
+            113
+        ],
+        "evidence_keywords": [
+            "penetrating eye injury",
+            "chemical burns",
+            "foreign bodies",
+            "blunt force trauma",
+            "eye injuries",
+            "eye trauma",
+            "eye care",
+            "first aid eye injuries"
+        ],
+        "retrieval_context": "This page would be useful when treating or recognizing eye injuries, such as penetrating eye injuries, chemical burns, or blunt force trauma, or when providing first aid for eye injuries."
+    },
+    {
+        "page_number": 113,
+        "title": "Eye Injuries",
+        "summary": "Guidance on treating eye injuries, including chemical exposure, foreign bodies, blunt force trauma, and cuts to the eye and eyelid.",
+        "main_topic": "Eye Injuries",
+        "subtopics": [
+            "Chemical Exposure",
+            "Foreign Bodies",
+            "Blunt Force Trauma",
+            "Cuts to the Eye and Eyelid"
+        ],
+        "offset_pages_used": [
+            112,
+            114
+        ],
+        "evidence_keywords": [
+            "chemical exposure",
+            "foreign body",
+            "blunt force trauma",
+            "cut to the eye",
+            "eye pad",
+            "eye shield",
+            "vitreous fluid"
+        ],
+        "retrieval_context": "This page would be useful when treating eye injuries, such as chemical exposure, foreign bodies, or blunt force trauma, or when dealing with cuts to the eye and eyelid. It provides guidance on protecting the injured eye, applying pressure, and seeking medical attention when necessary."
+    },
+    {
+        "page_number": 114,
+        "title": "Epistaxis (Nose Bleeding)",
+        "summary": "Guidance on treating nosebleeds, including actions to take and when to seek medical attention.",
+        "main_topic": "Epistaxis (Nose Bleeding)",
+        "subtopics": [
+            "Actions to Take",
+            "When to Seek Medical Attention"
+        ],
+        "offset_pages_used": [
+            113,
+            115
+        ],
+        "evidence_keywords": [
+            "nosebleed",
+            "epistaxis",
+            "pressure",
+            "pinch",
+            "bleeding",
+            "head injury",
+            "medical attention"
+        ],
+        "retrieval_context": "This page would be useful when treating a nosebleed, especially if the bleeding is severe or accompanied by a head injury, or when trying to determine when to seek medical attention for a nosebleed."
+    },
+    {
+        "page_number": 115,
+        "title": "Poisoning",
+        "summary": "A process or condition where a casualty becomes harmed by a toxic substance, with varying effects depending on exposure and dose.",
+        "main_topic": "Poisoning",
+        "subtopics": [
+            "Recognition",
+            "Actions to Take"
+        ],
+        "offset_pages_used": [
+            114,
+            116
+        ],
+        "evidence_keywords": [
+            "poisoning",
+            "toxic substance",
+            "exposure",
+            "dose",
+            "symptoms",
+            "first aid"
+        ],
+        "retrieval_context": "This page would be useful when a user is experiencing or suspecting poisoning, such as recognizing symptoms, performing first aid, or seeking medical attention."
+    },
+    {
+        "page_number": 116,
+        "title": "Handling Poisoning Cases",
+        "summary": "Instructions for handling poisoning cases, including recognition of symptoms, actions to take, and transportation of the casualty.",
+        "main_topic": "Poisoning",
+        "subtopics": [
+            "Recognition of symptoms",
+            "Actions to take",
+            "Transportation of the casualty",
+            "Principles of lifting"
+        ],
+        "offset_pages_used": [
+            115,
+            117
+        ],
+        "evidence_keywords": [
+            "poisoning",
+            "symptoms",
+            "vital signs",
+            "chest compressions",
+            "AED",
+            "transportation",
+            "lifting"
+        ],
+        "retrieval_context": "This page would be useful when dealing with poisoning cases, recognizing symptoms, and taking actions to stabilize the casualty. It is also relevant when transporting the casualty and following principles of lifting to ensure safety."
+    },
+    {
+        "page_number": 117,
+        "title": "Transportation of Casualty",
+        "summary": "Guidelines for moving a casualty, including principles of lifting and transportation methods.",
+        "main_topic": "Transportation of Casualty",
+        "subtopics": [
+            "Important factors to consider before moving a casualty",
+            "Principles of lifting",
+            "Methods of transportation",
+            "One Rescuer Methods"
+        ],
+        "offset_pages_used": [
+            116,
+            118
+        ],
+        "evidence_keywords": [
+            "transportation of casualty",
+            "lifting principles",
+            "one rescuer methods",
+            "shoulder drag",
+            "human crutch"
+        ],
+        "retrieval_context": "This page would be useful when a user needs to know how to transport a casualty safely, such as in emergency situations involving injuries, poisoning, or other medical emergencies."
+    },
+    {
+        "page_number": 118,
+        "title": "Moving a Casualty",
+        "summary": "Methods for moving a casualty, including shoulder drag, human crutch, cradle carry, and fireman's carry.",
+        "main_topic": "Transportation of Casualty",
+        "subtopics": [
+            "Shoulder Drag",
+            "Human Crutch",
+            "Cradle Carry",
+            "Fireman's Carry",
+            "Principles of Lifting"
+        ],
+        "offset_pages_used": [
+            117,
+            119
+        ],
+        "evidence_keywords": [
+            "shoulder drag",
+            "human crutch",
+            "cradle carry",
+            "fireman's carry",
+            "lifting",
+            "transportation",
+            "casualty movement"
+        ],
+        "retrieval_context": "This page would be useful when moving a casualty, especially in situations where the casualty needs to be transported over a rough surface or has injuries that require special care. It is also relevant when considering the principles of lifting and transporting a casualty to prevent further injuries."
+    },
+    {
+        "page_number": 119,
+        "title": "Cradle Carry and Fireman's Carry",
+        "summary": "Instructions for cradle carry and fireman's carry methods of transporting a casualty.",
+        "main_topic": "Transporting a Casualty",
+        "subtopics": [
+            "Cradle Carry",
+            "Fireman's Carry",
+            "When to use each method"
+        ],
+        "offset_pages_used": [
+            118,
+            120
+        ],
+        "evidence_keywords": [
+            "Cradle Carry",
+            "Fireman's Carry",
+            "Transporting a casualty",
+            "Lifting a casualty",
+            "Moving a casualty"
+        ],
+        "retrieval_context": "When transporting a casualty who is unable to walk, or when a casualty needs to be moved from danger promptly, but cannot be lifted or stands up. This page provides instructions for cradle carry and fireman's carry methods, and when to use each method."
+    },
+    {
+        "page_number": 120,
+        "title": "Pick-a-Back Carry",
+        "summary": "A method of carrying a casualty when the fireman's carry is unsafe.",
+        "main_topic": "Transporting a Casualty",
+        "subtopics": [
+            "Crouch in front of the casualty",
+            "Ask the casualty to put his arms over your shoulders",
+            "Grasp the casualty's thighs and rise slowly",
+            "Keep your back straight"
+        ],
+        "offset_pages_used": [
+            119,
+            121
+        ],
+        "evidence_keywords": [
+            "Pick-a-Back Carry",
+            "Fireman's Carry",
+            "Crouch",
+            "Grasp",
+            "Rise slowly"
+        ],
+        "retrieval_context": "When injuries make the fireman's carry unsafe, this method is used to transport a casualty. It is useful in situations where the casualty is unable to walk or stand, and the fireman's carry is not safe due to the weight or size of the casualty."
+    },
+    {
+        "page_number": 121,
+        "title": "Four-Handed Seat Carry",
+        "summary": "A method for two persons to carry a casualty when no equipment is available.",
+        "main_topic": "Transporting a Casualty",
+        "subtopics": [
+            "Grasping each other's wrists",
+            "Raising the casualty to sit on their hands",
+            "Stepping off with outer feet"
+        ],
+        "offset_pages_used": [
+            120,
+            122
+        ],
+        "evidence_keywords": [
+            "four-handed seat carry",
+            "linked forearms",
+            "forearms behind the back",
+            "hook-grip"
+        ],
+        "retrieval_context": "When transporting a casualty who cannot walk but can assist by using one or both arms to hang onto the first aiders, and when no equipment is available."
+    },
+    {
+        "page_number": 122,
+        "title": "Chair Carry",
+        "summary": "A method for transporting a conscious casualty along narrow passageways or up/down the stairs using a strong chair.",
+        "main_topic": "Transportation of Casualties",
+        "subtopics": [
+            "Chair selection",
+            "Chair positioning",
+            "Lifting and carrying",
+            "Support and stabilization"
+        ],
+        "offset_pages_used": [
+            121,
+            123
+        ],
+        "evidence_keywords": [
+            "chair carry",
+            "improvised method",
+            "transportation",
+            "casualty care"
+        ],
+        "retrieval_context": "This page would be useful when transporting a conscious casualty along narrow passageways or up/down the stairs, especially in emergency situations where equipment is limited."
+    },
+    {
+        "page_number": 123,
+        "title": "Chair Carry",
+        "summary": "A method for transporting a conscious casualty along narrow passageways or up/down the stairs using a strong chair.",
+        "main_topic": "Transportation of Casualties",
+        "subtopics": [
+            "Choosing a suitable chair",
+            "Positioning the casualty",
+            "Supporting the casualty",
+            "Lifting and moving the chair"
+        ],
+        "offset_pages_used": [
+            122
+        ],
+        "evidence_keywords": [
+            "chair carry",
+            "improvised stretcher",
+            "casualty transportation",
+            "first aid stretcher"
+        ],
+        "retrieval_context": "This page would be useful when transporting a conscious casualty along narrow passageways or up/down the stairs, especially in emergency situations where a wheeled stretcher is not available."
+    }
+]

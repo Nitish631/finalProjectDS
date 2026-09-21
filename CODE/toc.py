@@ -1,415 +1,880 @@
 import json
-from pathlib import Path
+import shutil
+import uuid
+import os
 from typing import List
 
-from langchain_ollama import ChatOllama
-from langchain_core.prompts import ChatPromptTemplate
+import pymupdf
+
+from langchain_ollama import ChatOllama, OllamaEmbeddings
+from langchain_chroma import Chroma
+from langchain_core.documents import Document
+
 from pydantic import BaseModel, Field
-from pypdf import PdfReader
 
 
-class PageTopic(BaseModel):
-
-    page_number: int = Field(
-        description="The actual PDF page number of the TARGET page."
+BASE_DIR = os.path.dirname(
+    os.path.dirname(
+        os.path.abspath(__file__)
     )
+)
+
+DATA_DIR = os.path.join(
+    BASE_DIR,
+    "DATA"
+)
+
+VECTOR_DB_DIR = os.path.join(
+    BASE_DIR,
+    "VECTOR_DB"
+)
+
+COLLECTION_NAME = "first_aid_collection"
+
+OLLAMA_LLM = "llama3.2:latest"
+
+OLLAMA_EMBEDDING_MODEL = "mxbai-embed-large"
+
+
+class PageTOC(BaseModel):
 
     title: str = Field(
-        description="A short TOC-style heading for the TARGET page."
+        description=(
+            "Short TOC-style title describing "
+            "the target page."
+        )
     )
 
     summary: str = Field(
-        description="A very brief summary of the TARGET page content (20-30 words)."
+        description=(
+            "Brief factual summary of the "
+            "actual target page content."
+        )
     )
 
     main_topic: str = Field(
-        description="The broad subject area covered on the TARGET page."
+        description=(
+            "Main topic covered by the target page."
+        )
     )
 
     subtopics: List[str] = Field(
-        description="Important subtopics or action points discussed on the TARGET page."
-    )
-
-    offset_pages_used: List[int] = Field(
-        description="The neighboring page numbers actually used as context."
+        description=(
+            "Important topics, procedures, "
+            "instructions, concepts, or action "
+            "points found on the target page."
+        )
     )
 
     evidence_keywords: List[str] = Field(
-        description="Important keywords or terms supported by the TARGET page."
+        description=(
+            "Important keywords and terminology "
+            "supported by the target page and "
+            "useful for retrieval."
+        )
+    )
+
+    retrieval_context: str = Field(
+        description=(
+            "Describe the situations, user needs, "
+            "questions, injuries, symptoms, "
+            "procedures, or conditions for which "
+            "this page would be useful during retrieval."
+        )
     )
 
 
-def read_pdf_pages(pdf_path: str | Path) -> List[str]:
+def generate_document_id():
 
-    reader = PdfReader(str(pdf_path))
-
-    pages: List[str] = []
-
-    for page in reader.pages:
-
-        text = page.extract_text() or ""
-
-        pages.append(text.strip())
-
-    return pages
+    return uuid.uuid4().hex[:8]
 
 
-def build_window_context(
-    all_pages: List[str],
-    target_index: int
-) -> dict:
+def create_directories(document_dir):
 
-    total_pages = len(all_pages)
+    directories = [
+        os.path.join(
+            document_dir,
+            "original"
+        ),
+        os.path.join(
+            document_dir,
+            "text"
+        ),
+        os.path.join(
+            document_dir,
+            "images"
+        ),
+        os.path.join(
+            document_dir,
+            "toc"
+        )
+    ]
 
-    previous_index = target_index - 1
-    next_index = target_index + 1
+    for directory in directories:
 
-    previous_page_number = (
-        previous_index + 1
-        if previous_index >= 0
-        else None
+        os.makedirs(
+            directory,
+            exist_ok=True
+        )
+
+
+def extract_page_text(page):
+
+    return page.get_text("text").strip()
+
+
+def extract_page_images(
+    pdf,
+    page,
+    document_dir,
+    document_id,
+    page_index
+):
+
+    image_dir = os.path.join(
+        document_dir,
+        "images"
     )
 
-    target_page_number = target_index + 1
-
-    next_page_number = (
-        next_index + 1
-        if next_index < total_pages
-        else None
-    )
-
-    return {
-        "previous_page_number": previous_page_number,
-        "target_page_number": target_page_number,
-        "next_page_number": next_page_number,
-
-        "previous_page_text":
-            all_pages[previous_index]
-            if previous_index >= 0
-            else "",
-
-        "target_page_text":
-            all_pages[target_index],
-
-        "next_page_text":
-            all_pages[next_index]
-            if next_index < total_pages
-            else "",
-    }
-
-
-def build_prompt_for_window(
-    window: dict
-) -> str:
-
-    previous_page_number = window["previous_page_number"]
-    target_page_number = window["target_page_number"]
-    next_page_number = window["next_page_number"]
-
-    previous_page_text = window["previous_page_text"]
-    target_page_text = window["target_page_text"]
-    next_page_text = window["next_page_text"]
-
-    return f"""
-You are creating a page-level table of contents for a first-aid PDF.
-
-You are given THREE consecutive PDF pages:
-
-- Previous page: {previous_page_number}
-- TARGET page: {target_page_number}
-- Next page: {next_page_number}
-
-IMPORTANT:
-You must generate a TOC entry ONLY for the TARGET page.
-
-The previous and next pages are provided ONLY as contextual
-information to help understand the TARGET page.
-
-DO NOT generate TOC entries for the previous or next pages.
-
-TARGET PAGE:
-{target_page_number}
-TARGET PAGE CONTENT:
-{target_page_text}
-
-
-
-
-PREVIOUS PAGE:{previous_page_number}
-PREVIOUS PAGE CONTEXT
-{previous_page_text}
-
-
-
-NEXT PAGE :{next_page_number}
-NEXT PAGE CONTEXT
-{next_page_text}
-
-
-------------------------------------------------------------
-RULES
-------------------------------------------------------------
-
-1. Generate exactly ONE TOC entry.
-
-2. The TOC entry MUST be for TARGET page
-   {target_page_number}.
-
-3. Do NOT create entries for pages
-   {previous_page_number} or {next_page_number}.
-
-4. The TARGET page is the primary source of information.
-
-5. Use the previous and next pages ONLY to understand
-   incomplete sentences, continuing procedures, headings,
-   or topics that span multiple pages.
-
-6. Do not invent information.
-
-7. The title must be short and TOC-like.
-
-8. The summary must briefly describe the actual content
-   of the TARGET page.
-
-9. main_topic must describe the main subject of the
-   TARGET page.
-
-10. subtopics should contain important topics,
-    procedures, instructions, or action points found
-    on the TARGET page.
-
-11. evidence_keywords must contain meaningful terms
-    supported by the TARGET page.
-
-12. offset_pages_used must contain ONLY neighboring pages
-    that were actually useful for understanding the
-    TARGET page.
-
-13. If the TARGET page is mostly a heading, figure,
-    table, copyright information, blank space, or other
-    non-content material, describe that accurately.
-
-14. The page_number MUST be {target_page_number}.
-
-Return ONLY the structured TOC entry for TARGET page
-{target_page_number}.
-"""
-
-
-def generate_toc_for_pdf(
-    pdf_path: str | Path,
-    model_name: str = "llama3.2:latest",
-    window_size: int = 3
-) -> List[dict]:
-
-    print("=" * 70)
-    print("STARTING PDF TOC GENERATION")
-    print("=" * 70)
-
-    if window_size != 3:
-
-        raise ValueError(
-            "This program is designed to use exactly "
-            "3 pages at a time."
-        )
-
-    print("\nReading PDF...")
-
-    all_pages = read_pdf_pages(pdf_path)
-
-    if not all_pages:
-
-        raise ValueError(
-            f"No pages were extracted from PDF: {pdf_path}"
-        )
-
-    total_pages = len(all_pages)
-
-    llm = ChatOllama(
-        model=model_name,
-        temperature=0,
-    )
-
-    structured_llm = llm.with_structured_output(PageTopic)
-
-    prompt = ChatPromptTemplate.from_messages(
-        [
-            (
-                "system",
-                "You are a careful document indexing system. "
-                "Create one accurate page-level TOC entry "
-                "for the specified TARGET page."
-            ),
-            (
-                "human",
-                "{input}"
-            ),
-        ]
-    )
-
-    result_entries: List[dict] = []
-
-    total_middle_pages = max(
-        0,
-        total_pages - 2
-    )
-
-    for target_index in range(
-        1,
-        total_pages - 1
-    ):
-
-        target_page_number = target_index + 1
-
-        print("\n" + "-" * 70)
-
-        print(
-            f"PROCESSING TARGET PAGE "
-            f"{target_page_number}/{total_pages}"
-        )
-
-        print(
-            f"Context window: "
-            f"{target_page_number - 1}, "
-            f"{target_page_number}, "
-            f"{target_page_number + 1}"
-        )
-
-        print(
-            f"TARGET: Page {target_page_number}"
-        )
-
-        print("-" * 70)
-
-        window = build_window_context(
-            all_pages,
-            target_index
-        )
-
-        final_prompt = prompt.format(
-            input=build_prompt_for_window(window)
-        )
-
-        print(
-            f"Sending pages "
-            f"{target_page_number - 1}, "
-            f"{target_page_number}, "
-            f"{target_page_number + 1} "
-            f"to Llama..."
-        )
-
-        response = structured_llm.invoke(
-            final_prompt
-        )
-
-        print(
-            f"✓ Llama generated TOC "
-            f"for page {target_page_number}"
-        )
-
-        result_entries.append(
-            {
-                "page_number":
-                    response.page_number,
-
-                "title":
-                    response.title,
-
-                "summary":
-                    response.summary,
-
-                "main_topic":
-                    response.main_topic,
-
-                "subtopics":
-                    response.subtopics,
-
-                "offset_pages_used":
-                    response.offset_pages_used,
-
-                "evidence_keywords":
-                    response.evidence_keywords,
-            }
-        )
-
-        print(
-            f"✓ TOC: {response.title}"
-        )
-
-        print(
-            f"✓ Generated entries: "
-            f"{len(result_entries)}/{total_middle_pages}"
-        )
-
-    return result_entries
-
-
-def save_results(
-    output_path: str | Path,
-    entries: List[dict]
-) -> None:
-
-    output_file = Path(output_path)
-
-    output_file.parent.mkdir(
-        parents=True,
+    os.makedirs(
+        image_dir,
         exist_ok=True
     )
 
-    with output_file.open(
-        "w",
-        encoding="utf-8"
-    ) as handle:
+    page_images = []
 
-        json.dump(
-            entries,
-            handle,
-            ensure_ascii=False,
-            indent=2
+    images = page.get_images(
+        full=True
+    )
+
+    for image_number, image in enumerate(
+        images,
+        start=1
+    ):
+
+        xref = image[0]
+
+        image_info = pdf.extract_image(
+            xref
         )
 
-        handle.write("\n")
+        image_bytes = image_info["image"]
 
-    print("\n" + "=" * 70)
-    print("TOC GENERATION COMPLETED")
-    print("=" * 70)
+        extension = image_info["ext"]
 
-    print(
-        f"Total TOC entries: {len(entries)}"
+        if extension != "jpeg":
+
+            continue
+
+        filename = (
+            f"{document_id}_"
+            f"page_{page_index}_"
+            f"image_{image_number}."
+            f"{extension}"
+        )
+
+        image_path = os.path.join(
+            image_dir,
+            filename
+        )
+
+        with open(
+            image_path,
+            "wb"
+        ) as file:
+
+            file.write(
+                image_bytes
+            )
+
+        page_images.append(
+            os.path.join(
+                "images",
+                filename
+            ).replace(
+                "\\",
+                "/"
+            )
+        )
+
+    return page_images
+
+
+def extract_pdf_data(
+    pdf,
+    document_id,
+    document_dir
+):
+
+    pages = {}
+
+    image_data = {}
+
+    total_pages = len(pdf)
+
+    for page_index in range(
+        total_pages
+    ):
+
+        print(
+            f"Processing page "
+            f"{page_index}/"
+            f"{total_pages - 1}"
+        )
+
+        page = pdf[page_index]
+
+        current_text = extract_page_text(
+            page
+        )
+
+        page_images = extract_page_images(
+            pdf=pdf,
+            page=page,
+            document_dir=document_dir,
+            document_id=document_id,
+            page_index=page_index
+        )
+
+        pages[str(page_index)] = current_text
+
+        if page_images:
+
+            image_data[
+                str(page_index)
+            ] = page_images
+
+    text_output_path = os.path.join(
+        document_dir,
+        "text",
+        f"{document_id}_pages.json"
     )
 
-    print(
-        f"Saved to: {output_file}"
+    with open(
+        text_output_path,
+        "w",
+        encoding="utf-8"
+    ) as file:
+
+        json.dump(
+            pages,
+            file,
+            ensure_ascii=False,
+            indent=4
+        )
+
+    image_output_path = os.path.join(
+        document_dir,
+        "images",
+        f"{document_id}_images.json"
     )
 
+    with open(
+        image_output_path,
+        "w",
+        encoding="utf-8"
+    ) as file:
 
-def main():
+        json.dump(
+            image_data,
+            file,
+            ensure_ascii=False,
+            indent=4
+        )
 
-    base_dir = Path(__file__).resolve().parent.parent
+    return pages, image_data
 
-    pdf_path = (
-        base_dir /
-        "ASSETS" /
-        "firstaid1.pdf"
+
+def build_toc_prompt(
+    target_page,
+    previous_page,
+    next_page,
+    previous_text,
+    target_text,
+    next_text
+):
+
+    return f"""
+Create one retrieval-oriented TOC entry
+for the TARGET PAGE of a first-aid PDF.
+
+The TARGET PAGE is the primary source.
+
+Previous and next pages are context only.
+
+Do not attribute information to the target
+page unless supported by it.
+
+The TOC will be embedded for semantic retrieval.
+
+Make retrieval_context describe when a user
+would need this page, using relevant first-aid
+situations, symptoms, injuries, procedures,
+and natural user-query terminology.
+
+TARGET PAGE {target_page}:
+
+{target_text}
+
+
+PREVIOUS PAGE {previous_page}:
+
+{previous_text}
+
+
+NEXT PAGE {next_page}:
+
+{next_text}
+
+
+Generate only these fields:
+
+- title: short TOC-style title
+- summary: factual summary of the target page
+- main_topic: main subject of the target page
+- subtopics: important procedures, instructions,
+  concepts, or actions
+- evidence_keywords: important retrieval terms
+- retrieval_context: when and why this page
+  would be useful
+
+
+Rules:
+
+- Use only information supported by the target page.
+- Neighboring pages are context only.
+- Do not invent information.
+- Keep all fields concise but informative.
+- If the page is a heading, table, image,
+  blank page, or reference page, describe
+  its actual content accurately.
+
+Do not generate page_number or offset_pages_used.
+Python will generate those values.
+"""
+
+
+def generate_toc(
+    pages,
+    document_id,
+    document_dir,
+    model_name=OLLAMA_LLM
+):
+
+    llm = ChatOllama(
+        model=model_name,
+        temperature=0
     )
 
-    output_path = (
-        base_dir /
-        "ASSETS" /
-        "table_of_content1.json"
+    structured_llm = llm.with_structured_output(
+        PageTOC
     )
 
-    generated = generate_toc_for_pdf(
-        pdf_path=str(pdf_path),
-        model_name="llama3.2:latest",
-        window_size=3,
+    total_pages = len(pages)
+
+    toc_entries = []
+
+    for page_index in range(
+        total_pages
+    ):
+
+        print(
+            f"Generating TOC "
+            f"{page_index}/"
+            f"{total_pages - 1}"
+        )
+
+        if page_index > 0:
+
+            previous_page = page_index - 1
+
+            previous_text = pages[
+                str(previous_page)
+            ]
+
+        else:
+
+            previous_page = None
+
+            previous_text = ""
+
+        current_text = pages[
+            str(page_index)
+        ]
+
+        if page_index < total_pages - 1:
+
+            next_page = page_index + 1
+
+            next_text = pages[
+                str(next_page)
+            ]
+
+        else:
+
+            next_page = None
+
+            next_text = ""
+
+        prompt = build_toc_prompt(
+            target_page=page_index,
+            previous_page=previous_page,
+            next_page=next_page,
+            previous_text=previous_text,
+            target_text=current_text,
+            next_text=next_text
+        )
+
+        response = structured_llm.invoke(
+            prompt
+        )
+
+        offset_pages = []
+
+        if previous_page is not None:
+
+            offset_pages.append(
+                previous_page
+            )
+
+        if next_page is not None:
+
+            offset_pages.append(
+                next_page
+            )
+
+        toc_entries.append(
+            {
+                "page_number": page_index,
+                "title": response.title,
+                "summary": response.summary,
+                "main_topic": response.main_topic,
+                "subtopics": response.subtopics,
+                "offset_pages_used": offset_pages,
+                "evidence_keywords": response.evidence_keywords,
+                "retrieval_context": response.retrieval_context
+            }
+        )
+
+    output_path = os.path.join(
+        document_dir,
+        "toc",
+        f"{document_id}_toc.json"
     )
 
-    save_results(
+    with open(
         output_path,
-        generated
+        "w",
+        encoding="utf-8"
+    ) as file:
+
+        json.dump(
+            toc_entries,
+            file,
+            ensure_ascii=False,
+            indent=4
+        )
+
+    return toc_entries
+
+
+def create_metadata(
+    document_id,
+    pdf_path,
+    total_pages,
+    document_dir
+):
+
+    metadata = {
+        "document_id": document_id,
+        "filename": os.path.basename(pdf_path),
+        "total_pages": total_pages,
+        "page_indexing": "zero-based",
+        "collection_name": COLLECTION_NAME,
+        "status": "READY"
+    }
+
+    output_path = os.path.join(
+        document_dir,
+        "metadata.json"
+    )
+
+    with open(
+        output_path,
+        "w",
+        encoding="utf-8"
+    ) as file:
+
+        json.dump(
+            metadata,
+            file,
+            ensure_ascii=False,
+            indent=4
+        )
+
+
+def get_vector_store():
+
+    embedding_model = OllamaEmbeddings(
+        model=OLLAMA_EMBEDDING_MODEL
+    )
+
+    vector_store = Chroma(
+        collection_name=COLLECTION_NAME,
+        persist_directory=VECTOR_DB_DIR,
+        embedding_function=embedding_model
+    )
+
+    return vector_store
+
+
+def embed_toc(
+    toc_entries,
+    document_id
+):
+
+    print(
+        "\nCreating TOC embeddings..."
+    )
+
+    vector_store = get_vector_store()
+
+    documents = []
+
+    ids = []
+
+    for entry in toc_entries:
+
+        page_number = entry[
+            "page_number"
+        ]
+
+        content = (
+            f"Title: {entry['title']}\n"
+            f"Summary: {entry['summary']}\n"
+            f"Main topic: {entry['main_topic']}\n"
+            f"Subtopics: "
+            f"{', '.join(entry['subtopics'])}\n"
+            f"Evidence keywords: "
+            f"{', '.join(entry['evidence_keywords'])}\n"
+            f"Retrieval context: "
+            f"{entry['retrieval_context']}"
+        )
+
+        metadata = {
+            "document_id": document_id,
+            "page_number": page_number,
+            "title": entry["title"],
+            "main_topic": entry["main_topic"],
+            "source": "toc"
+        }
+
+        documents.append(
+            Document(
+                page_content=content,
+                metadata=metadata
+            )
+        )
+
+        ids.append(
+            f"{document_id}_page_{page_number}"
+        )
+
+    vector_store.add_documents(
+        documents=documents,
+        ids=ids
+    )
+
+    print(
+        f"Embedded {len(documents)} TOC entries."
+    )
+
+    return {
+        "collection_name": COLLECTION_NAME,
+        "embedded_entries": len(documents)
+    }
+
+
+def process_document(
+    pdf_path,
+    document_id=None
+):
+
+    if document_id is None:
+
+        document_id = generate_document_id()
+
+    document_dir = os.path.join(
+        DATA_DIR,
+        "documents",
+        document_id
+    )
+
+    create_directories(
+        document_dir
+    )
+
+    original_path = os.path.join(
+        document_dir,
+        "original",
+        f"{document_id}_source.pdf"
+    )
+
+    shutil.copy2(
+        pdf_path,
+        original_path
+    )
+
+    pdf = pymupdf.open(
+        pdf_path
+    )
+
+    total_pages = len(pdf)
+
+    print(
+        f"Total pages: {total_pages}"
+    )
+
+    print(
+        "\nExtracting PDF data..."
+    )
+
+    pages, image_data = extract_pdf_data(
+        pdf=pdf,
+        document_id=document_id,
+        document_dir=document_dir
+    )
+
+    pdf.close()
+
+    print(
+        "\nPDF extraction completed."
+    )
+
+    print(
+        "\nGenerating TOC..."
+    )
+
+    toc_entries = generate_toc(
+        pages=pages,
+        document_id=document_id,
+        document_dir=document_dir
+    )
+
+    print(
+        "\nTOC generation completed."
+    )
+
+    print(
+        "\nEmbedding TOC..."
+    )
+
+    embedding_result = embed_toc(
+        toc_entries=toc_entries,
+        document_id=document_id
+    )
+
+    create_metadata(
+        document_id=document_id,
+        pdf_path=pdf_path,
+        total_pages=total_pages,
+        document_dir=document_dir
+    )
+
+    return {
+        "document_id": document_id,
+        "filename": os.path.basename(pdf_path),
+        "total_pages": total_pages,
+        "toc_entries": len(toc_entries),
+        "embedded_entries": embedding_result[
+            "embedded_entries"
+        ],
+        "document_directory": document_dir,
+        "vector_database": VECTOR_DB_DIR,
+        "collection": COLLECTION_NAME
+    }
+
+
+def search_toc(
+    query,
+    k=5
+):
+
+    vector_store = get_vector_store()
+
+    results = vector_store.similarity_search_with_score(
+        query,
+        k=k
+    )
+
+    matches = []
+
+    for document, score in results:
+
+        matches.append(
+            {
+                "document_id":
+                    document.metadata.get(
+                        "document_id"
+                    ),
+
+                "page_number":
+                    document.metadata.get(
+                        "page_number"
+                    ),
+
+                "title":
+                    document.metadata.get(
+                        "title"
+                    ),
+
+                "main_topic":
+                    document.metadata.get(
+                        "main_topic"
+                    ),
+
+                "score":
+                    score,
+
+                "content":
+                    document.page_content
+            }
+        )
+
+    return matches
+
+
+def get_page_text(
+    document_id,
+    page_number
+):
+
+    text_path = os.path.join(
+        DATA_DIR,
+        "documents",
+        document_id,
+        "text",
+        f"{document_id}_pages.json"
+    )
+
+    if not os.path.exists(
+        text_path
+    ):
+
+        raise FileNotFoundError(
+            f"Text file not found for "
+            f"document {document_id}"
+        )
+
+    with open(
+        text_path,
+        "r",
+        encoding="utf-8"
+    ) as file:
+
+        pages = json.load(
+            file
+        )
+
+    return pages.get(
+        str(page_number),
+        ""
     )
 
 
-if __name__ == "__main__":
-    main()
+def get_page_range(
+    document_id,
+    page_number,
+    retrieval_margin=1
+):
+
+    text_path = os.path.join(
+        DATA_DIR,
+        "documents",
+        document_id,
+        "text",
+        f"{document_id}_pages.json"
+    )
+
+    if not os.path.exists(
+        text_path
+    ):
+
+        raise FileNotFoundError(
+            f"Text file not found for "
+            f"document {document_id}"
+        )
+
+    with open(
+        text_path,
+        "r",
+        encoding="utf-8"
+    ) as file:
+
+        pages = json.load(
+            file
+        )
+
+    total_pages = len(pages)
+
+    start_page = max(
+        0,
+        page_number - retrieval_margin
+    )
+
+    end_page = min(
+        total_pages - 1,
+        page_number + retrieval_margin
+    )
+
+    result = []
+
+    for current_page in range(
+        start_page,
+        end_page + 1
+    ):
+
+        result.append(
+            {
+                "page_number": current_page,
+                "text": pages.get(
+                    str(current_page),
+                    ""
+                )
+            }
+        )
+
+    return result
+
+
+def delete_document(
+    document_id
+):
+
+    vector_store = get_vector_store()
+
+    vector_store.delete(
+        where={
+            "document_id": document_id
+        }
+    )
+
+    document_dir = os.path.join(
+        DATA_DIR,
+        "documents",
+        document_id
+    )
+
+    if os.path.exists(
+        document_dir
+    ):
+
+        shutil.rmtree(
+            document_dir
+        )
+
+    return {
+        "document_id": document_id,
+        "collection": COLLECTION_NAME,
+        "deleted": True
+    }
