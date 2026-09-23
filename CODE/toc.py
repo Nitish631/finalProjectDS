@@ -695,53 +695,6 @@ def process_document(
     }
 
 
-def search_toc(
-    query,
-    k=5
-):
-
-    vector_store = get_vector_store()
-
-    results = vector_store.similarity_search_with_score(
-        query,
-        k=k
-    )
-
-    matches = []
-
-    for document, score in results:
-
-        matches.append(
-            {
-                "document_id":
-                    document.metadata.get(
-                        "document_id"
-                    ),
-
-                "page_number":
-                    document.metadata.get(
-                        "page_number"
-                    ),
-
-                "title":
-                    document.metadata.get(
-                        "title"
-                    ),
-
-                "main_topic":
-                    document.metadata.get(
-                        "main_topic"
-                    ),
-
-                "score":
-                    score,
-
-                "content":
-                    document.page_content
-            }
-        )
-
-    return matches
 
 
 def get_page_text(
@@ -780,71 +733,6 @@ def get_page_text(
         str(page_number),
         ""
     )
-
-
-def get_page_range(
-    document_id,
-    page_number,
-    retrieval_margin=1
-):
-
-    text_path = os.path.join(
-        DATA_DIR,
-        "documents",
-        document_id,
-        "text",
-        f"{document_id}_pages.json"
-    )
-
-    if not os.path.exists(
-        text_path
-    ):
-
-        raise FileNotFoundError(
-            f"Text file not found for "
-            f"document {document_id}"
-        )
-
-    with open(
-        text_path,
-        "r",
-        encoding="utf-8"
-    ) as file:
-
-        pages = json.load(
-            file
-        )
-
-    total_pages = len(pages)
-
-    start_page = max(
-        0,
-        page_number - retrieval_margin
-    )
-
-    end_page = min(
-        total_pages - 1,
-        page_number + retrieval_margin
-    )
-
-    result = []
-
-    for current_page in range(
-        start_page,
-        end_page + 1
-    ):
-
-        result.append(
-            {
-                "page_number": current_page,
-                "text": pages.get(
-                    str(current_page),
-                    ""
-                )
-            }
-        )
-
-    return result
 
 
 def delete_document(

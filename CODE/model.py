@@ -294,30 +294,40 @@ def search_toc(query):
                 {
                     "document_id":
                         document_id,
-
                     "page_number":
                         toc_item.get(
                             "page_number"
                         ),
-
                     "retrieval_page_range":
                         toc_item.get(
                             "offset_pages_used"
                         ),
-
                     "title":
                         toc_item.get(
                             "title"
                         ),
-
                     "main_topic":
                         toc_item.get(
                             "main_topic"
                         ),
-
                     "content":
                         toc_item.get(
                             "summary",
+                            ""
+                        ),
+                    "subtopics":
+                        toc_item.get(
+                            "subtopics",
+                            []
+                        ),
+                    "evidence_keywords":
+                        toc_item.get(
+                            "evidence_keywords",
+                            []
+                        ),
+                    "retrieval_context":
+                        toc_item.get(
+                            "retrieval_context",
                             ""
                         )
                 }

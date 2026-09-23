@@ -1,5 +1,8 @@
 from pathlib import Path
-
+import random
+import smtplib
+import os
+from datetime import datetime ,timedelta
 from fastapi import (
     FastAPI,
     UploadFile,
@@ -7,15 +10,16 @@ from fastapi import (
     HTTPException,
     BackgroundTasks
 )
-
+from email.message import EmailMessage
+import bcrypt
 from fastapi.responses import JSONResponse
 from fastapi.staticfiles import StaticFiles
-
-from pydantic import BaseModel, Field
-
-from typing import List
-
-import json
+from CODE.webiomodels import *
+from CODE.r_w_json import *
+from dotenv import load_dotenv
+load_dotenv(
+    Path(__file__).resolve().parent.parent / ".env"
+)
 
 from CODE.toc import (
     DATA_DIR,
@@ -39,83 +43,40 @@ app.mount(
     name="images"
 )
 
-class ChatMessage(BaseModel):
+async def update_delete(
+    file,
+    document_id,
+    adminData: AdminData,
+    background_tasks: BackgroundTasks
+):
 
-    role: str
-    content: str
-
-
-class FirstAidRequest(BaseModel):
-
-    query: str
-
-    chat_history: List[ChatMessage] = Field(
-        default_factory=list
+    await upload_document(
+        request=adminData,
+        background_tasks=background_tasks,
+        file=file
     )
 
-
-def read_documents_json() -> list:
-
-    json_file_path = (
-        Path(DATA_DIR)
-        / "documents.json"
+    delete_document(
+        document_id
     )
-
-    if (
-        json_file_path.exists()
-        and json_file_path.stat().st_size > 0
-    ):
-
-        try:
-
-            with open(
-                json_file_path,
-                "r",
-                encoding="utf-8"
-            ) as f:
-
-                data = json.load(f)
-
-                return (
-                    data
-                    if isinstance(data, list)
-                    else []
-                )
-
-        except json.JSONDecodeError:
-
-            return []
-
-    return []
-
-
-def write_documents_json(data: list):
-
-    json_file_path = (
-        Path(DATA_DIR)
-        / "documents.json"
-    )
-
-    with open(
-        json_file_path,
-        "w",
-        encoding="utf-8"
-    ) as f:
-
-        json.dump(
-            data,
-            f,
-            indent=4,
-            ensure_ascii=False
-        )
-
 
 @app.post("/upload-document")
 async def upload_document(
+    request:AdminData,
     background_tasks: BackgroundTasks,
     file: UploadFile = File(...)
 ):
+    admin = authenticate_admin(
+        request.email,
+        request.password
+    )
 
+    if admin is None:
+        raise HTTPException(
+            status_code=401,
+            detail="Invalid admin credentials"
+        )
+    
     if not file.filename:
 
         raise HTTPException(
@@ -214,8 +175,16 @@ async def upload_document(
 
 
 @app.get("/documents")
-def get_documents():
-
+def get_documents(request:AdminData):
+    admin = authenticate_admin(
+        request.email,
+        request.password
+    )
+    if admin is None:
+        raise HTTPException(
+            status_code=401,
+            detail="Invalid admin credentials"
+        )
     try:
 
         documents = read_documents_json()
@@ -234,76 +203,86 @@ def get_documents():
 
 
 @app.patch("/documents/{document_id}")
-def update_document(
+@app.patch("/documents/{document_id}")
+async def update_document(
     document_id: str,
-    status: str = None,
-    filename: str = None
+    background_tasks: BackgroundTasks,
+    adminData: AdminData,
+    file: UploadFile = File(...)
 ):
 
-    try:
+    admin = authenticate_admin(
+        adminData.email,
+        adminData.password
+    )
 
-        existing_data = (
-            read_documents_json()
-        )
-
-        document_found = False
-
-        for entry in existing_data:
-
-            if (
-                entry.get("document_id")
-                == document_id
-            ):
-
-                if status is not None:
-                    entry["status"] = status
-
-                if filename is not None:
-                    entry["filename"] = filename
-
-                document_found = True
-                break
-
-        if not document_found:
-
-            raise HTTPException(
-                status_code=404,
-                detail=(
-                    f"Document with ID "
-                    f"{document_id} not found "
-                    f"in tracking records."
-                )
-            )
-
-        write_documents_json(
-            existing_data
-        )
-
-        return {
-            "success": True,
-            "message": (
-                "Document metadata "
-                "updated successfully."
-            ),
-            "document_id": document_id
-        }
-
-    except HTTPException:
-        raise
-
-    except Exception as e:
+    if admin is None:
 
         raise HTTPException(
-            status_code=500,
-            detail=str(e)
+            status_code=401,
+            detail="Invalid admin credentials"
         )
+
+    existing_data = read_documents_json()
+
+    document = next(
+        (
+            document
+            for document in existing_data
+            if document.get("document_id")
+            == document_id
+        ),
+        None
+    )
+
+    if document is None:
+
+        raise HTTPException(
+            status_code=404,
+            detail="Document not found."
+        )
+
+    await update_delete(
+        file=file,
+        document_id=document_id,
+        adminData=adminData,
+        background_tasks=background_tasks
+    )
+
+    existing_data = read_documents_json()
+
+    existing_data = [
+        document
+        for document in existing_data
+        if document.get("document_id")
+        != document_id
+    ]
+
+    write_documents_json(
+        existing_data
+    )
+
+    return {
+        "success": True,
+        "message": "Document updated successfully."
+    }
 
 
 @app.delete("/documents/{document_id}")
 def remove_document(
-    document_id: str
+    document_id: str,
+    request:AdminData
 ):
+    admin = authenticate_admin(
+        request.email,
+        request.password
+    )
 
+    if admin is None:
+        raise HTTPException(
+            status_code=401,
+            detail="Invalid admin credentials"
+        )
     try:
 
         result = delete_document(
@@ -369,5 +348,212 @@ def first_aid_route(
             detail=str(e)
         )
 
+
+@app.post("/send-otp")
+def send_otp(email_message: EmailRequest):
+    email=email_message.email
+    admins = read_admins()
+
+    admin = next(
+        (
+            admin
+            for admin in admins
+            if admin.get("email") == email
+        ),
+        None
+    )
+
+    if admin is None:
+        return {
+            "message": "Admin email not found"
+        }
+
+    otp = str(
+        random.randint(100000, 999999)
+    )
+
+    otp_expiry = (
+        datetime.now()
+        + timedelta(minutes=5)
+    )
+
+    admin["otp"] = otp
+    admin["otp_expiry"] = (
+        otp_expiry.isoformat()
+    )
+    admin["otp_verified"] = False
+
+    write_admins(admins)
+
+    message = EmailMessage()
+    message["Subject"] = "Your OTP"
+    message["From"] = os.getenv(
+        "EMAIL_ADDRESS"
+    )
+    message["To"] = email
+
+    message.set_content(
+        f"Your OTP is: {otp}\n\n"
+        "This OTP will expire in 5 minutes."
+    )
+
+    with smtplib.SMTP_SSL(
+        "smtp.gmail.com",
+        465
+    ) as server:
+
+        server.login(
+            os.getenv("EMAIL_ADDRESS"),
+            os.getenv("EMAIL_APP_PASSWORD")
+        )
+
+        server.send_message(message)
+
+    return {
+        "message": "OTP sent successfully"
+    }
+
+
+@app.post("/verify_otp")
+def verify_otp(
+    request: VerifyOtpRequest
+):
+
+    admins = read_admins()
+
+    admin = next(
+        (
+            admin
+            for admin in admins
+            if admin.get("email")
+            == request.email
+        ),
+        None
+    )
+
+    if admin is None:
+        return {
+            "message": "Admin email not found"
+        }
+
+    if (
+        "otp" not in admin
+        or "otp_expiry" not in admin
+    ):
+        return {
+            "message": "OTP not generated"
+        }
+
+    if admin["otp"] != request.otp:
+        return {
+            "message": "Invalid OTP"
+        }
+
+    otp_expiry = datetime.fromisoformat(
+        admin["otp_expiry"]
+    )
+
+    if datetime.now() > otp_expiry:
+        return {
+            "message": "OTP expired"
+        }
+
+    admin["otp_verified"] = True
+
+    admin["password_change_time"] = (
+        datetime.now()
+        + timedelta(minutes=5)
+    ).isoformat()
+
+    write_admins(admins)
+
+    return {
+        "message": "OTP verified successfully"
+    }
+
+
+@app.post("/change-password")
+def change_password(
+    request: ChangePasswordRequest
+):
+
+    admins = read_admins()
+
+    admin = next(
+        (
+            admin
+            for admin in admins
+            if admin.get("email")
+            == request.email
+        ),
+        None
+    )
+
+    if admin is None:
+        return {
+            "message": "Admin email not found"
+        }
+
+    if not admin.get(
+        "otp_verified",
+        False
+    ):
+        return {
+            "message": "OTP not verified"
+        }
+
+    if "otp" not in admin:
+        return {
+            "message": "OTP not found"
+        }
+
+    if admin["otp"] != request.otp:
+        return {
+            "message": "Invalid OTP"
+        }
+
+    if "password_change_time" not in admin:
+        return {
+            "message": (
+                "Password change time not found"
+            )
+        }
+
+    password_change_time = (
+        datetime.fromisoformat(
+            admin["password_change_time"]
+        )
+    )
+
+    if datetime.now() > password_change_time:
+        return {
+            "message": (
+                "Password change time expired"
+            )
+        }
+
+    hashed_password = bcrypt.hashpw(
+    request.password.encode("utf-8"),
+    bcrypt.gensalt()
+    ).decode("utf-8")
+
+    admin["password"] = hashed_password
+
+    admin.pop("otp", None)
+    admin.pop("otp_expiry", None)
+    admin.pop(
+        "password_change_time",
+        None
+    )
+
+    admin["otp_verified"] = False
+
+    write_admins(admins)
+
+    return {
+        "message": (
+            "Password changed successfully"
+        )
+    }
 
 # python -m uvicorn CODE.route:app --reload --host 0.0.0.0 --port 8000
