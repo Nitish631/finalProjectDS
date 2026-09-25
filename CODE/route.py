@@ -13,7 +13,7 @@ from fastapi import (
 )
 from email.message import EmailMessage
 import bcrypt
-from fastapi.responses import JSONResponse
+from fastapi.responses import JSONResponse,StreamingResponse
 from fastapi.staticfiles import StaticFiles
 from CODE.webiomodels import *
 from CODE.r_w_json import authenticate_admin,read_documents_json,read_admins,write_documents_json,write_admins
@@ -327,32 +327,45 @@ def remove_document(
         )
 
 
+import json
+import asyncio
+from fastapi import FastAPI, HTTPException
+from fastapi.responses import StreamingResponse
+from pydantic import BaseModel
+
+# ... (keep your existing FirstAidRequest, FirstAidResponse, and first_aid function imports here)
+
 @app.post("/first_aid")
-def first_aid_route(
-    request: FirstAidRequest
-):
-
+async def first_aid_route(request: FirstAidRequest):
     try:
-
         chat_history = [
-            {
-                "role": message.role,
-                "content": message.content
-            }
+            {"role": message.role, "content": message.content}
             for message in request.chat_history
         ]
 
-        return first_aid(
-            query=request.query,
-            chat_history=chat_history
-        )
+        async def event_generator():
+            loop = asyncio.get_running_loop()
+            
+            task = loop.run_in_executor(
+                None, 
+                first_aid, 
+                request.query, 
+                chat_history
+            )
+            
+            while not task.done():
+                yield " "  
+                await asyncio.sleep(15)
+                
+            result = await task
+                                
+            yield json.dumps(result)
+
+        return StreamingResponse(event_generator(), media_type="application/json")
 
     except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
 
-        raise HTTPException(
-            status_code=500,
-            detail=str(e)
-        )
 @app.post("/login")
 def login(email:str,password:str):
     admin = authenticate_admin(

@@ -76,7 +76,7 @@ toc_retriever = vector_store.as_retriever(
 
 section_selector = ChatOllama(
     model=OLLAMA_LLM,
-    temperature=0
+    temperature=0.5
 ).with_structured_output(
     RelevantSections
 )
@@ -84,7 +84,7 @@ section_selector = ChatOllama(
 
 answer_llm = ChatOllama(
     model=OLLAMA_LLM,
-    temperature=0.5
+    temperature=0.75
 )
 
 
@@ -95,65 +95,44 @@ section_selector_prompt = ChatPromptTemplate.from_messages(
             """
 You are a strict retrieval section selector.
 
-You are NOT answering the user's question.
+Select the TOP 6 candidate sections that are most directly
+useful for answering the cure of the USER QUERY. Do NOT answer the query.
 
-Your task is to select ONLY the candidate sections
-that are directly relevant to the user's query.
-
-Evaluate each candidate independently using ONLY
-the information provided in that candidate:
-
+Evaluate each candidate using:
 - title
 - main_topic
 - content
+- subtopics
+- evidence_keywords
+- retrieval_context
 
-STRICT RULES:
+RULES:
+- Select only directly relevant candidates.
+- Each candidate must independently support the query.
+- Do not use page proximity or document similarity as
+  evidence of relevance.
+- Do not select weakly related candidates.
+- Do not select repetitive candidates.
+- When candidates contain similar information, select the
+  most useful one.
+- Prefer different and complementary information.
+- Return fewer than 6 if fewer are sufficiently relevant.
+- Never return the same section twice.
 
-- Select a candidate ONLY if its own content is
-  relevant to the user's query.
-- Do NOT select a candidate because it is next to,
-  before, or after another relevant candidate.
-- Do NOT select a candidate based only on its
-  page number.
-- Do NOT assume that nearby pages contain related
-  information.
-- Do NOT use information from other candidates to
-  make a candidate relevant.
-- Do NOT include weakly related or unrelated
-  candidates.
-- Prefer precision over recall.
-- If there is insufficient evidence that a
-  candidate is relevant, DO NOT select it.
-- A candidate must independently justify its
-  inclusion.
-- Do NOT answer the user's question.
-- Do NOT summarize the candidates.
+OUTPUT:
+- Return at most 6 sections.
+- Return only:
+  document_id
+  page_number
+  retrieval_page_range
+- Copy these values EXACTLY from the candidates.
+- Never calculate, modify, or invent them.
+- Every returned section must exist in the candidates.
+- Do not return any other candidate fields.
+- Do not explain the selection.
 
-OUTPUT RULES:
+If no candidate is relevant, return:
 
-- Return ONLY candidates that are relevant.
-- Return the EXACT document_id from the selected
-  candidate.
-- Return the EXACT page_number from the selected
-  candidate.
-- Return the EXACT retrieval_page_range from the
-  selected candidate.
-- Do NOT calculate a page number.
-- Do NOT calculate a retrieval_page_range.
-- Do NOT copy a page number or retrieval range from
-  another candidate.
-- Do NOT invent any value.
-- Do NOT modify any value.
-- Every returned section MUST correspond to an
-  actual candidate provided in the input.
-- If a candidate is not relevant, its page_number
-  MUST NOT appear in the output.
-
-If no candidate is directly relevant, return:
-
-{{
-    "sections": []
-}}
 """
         ),
         (
@@ -171,31 +150,46 @@ CANDIDATE SECTIONS:
     ]
 )
 
-
 answer_prompt = ChatPromptTemplate.from_messages(
     [
         (
             "system",
             """
-You are a first-aid AI assistant.
+You are a strict first-aid AI assistant.
 
-Answer the user's question using ONLY
-the provided source pages.
+SOURCE RULES:
+- Answer ONLY using information supported by the
+  SOURCE PAGES.
+- Do not use outside medical knowledge.
+- Do not guess, invent, or add unsupported treatments,
+  medicines, dosages, procedures, symptoms, or warnings.
+- Use CHAT HISTORY only to understand the user's context.
+- If the source does not contain enough information,
+  respond exactly:
 
-Rules:
-- find the user condition from query and chat history if given
-- Do not use outside knowledge.
-- Do not invent information.
-- Give practical first-aid instructions
-  supported by the source.
-- Consider the conversation history.
-- If the source does not contain enough
-  information, say: "I don't have enough information about it."
-- If the source or response you generated mentions emergency number to call ,
-replace it with Nepal Ambulance: 102.
-For emergencies, use:
+"I don't have enough information about it."
+
+EMERGENCY RULES:
+- Follow emergency instructions in the SOURCE PAGES.
+- If the source says to contact emergency services,
+  clearly tell the user to seek emergency help.
+- Do not declare an emergency unless supported by
+  the SOURCE PAGES.
+- Do not weaken or omit emergency instructions.
+- Replace emergency numbers from the source with:
+
 Nepal Ambulance: 102
 Nepal Police: 100
+
+- Never provide emergency numbers from another country
+  or invent an emergency number.
+
+ANSWER STYLE:
+- Give only relevant first-aid information.
+- Give practical steps only when supported by the source.
+- Keep instructions clear and preserve the source's
+  order when steps are given.
+- Do not mention the retrieval system or source pages.
 """
         ),
         (
@@ -208,7 +202,6 @@ Nepal Police: 100
 SOURCE PAGES:
 
 {content}
-
 
 USER QUERY:
 
@@ -370,7 +363,7 @@ def select_sections(
         for candidate in candidates
     )
 
-    print("SECTION SELECTOR INPUT:")
+    print("SECTION SELECTOR INPUT:",len(candidates))
     print(candidates_text)
     print("-" * 40)
 
@@ -383,7 +376,7 @@ def select_sections(
         )
     )
 
-    print("SECTION SELECTOR OUTPUT:")
+    print("SECTION SELECTOR OUTPUT:",len(response.sections))
     print(response)
     print("-" * 40)
 
@@ -500,6 +493,99 @@ def get_image_paths(
                 )
 
     return image_paths
+def get_pages_from_sections2(
+    sections
+):
+
+    pages = {}
+
+    for section in sections:
+
+        document_id = section.document_id
+        page_number=section.page_number
+        
+
+        key = (
+            document_id,
+            page_number
+        )
+
+        pages[key] = {
+            "document_id": document_id,
+            "page_number": page_number
+        }
+
+    return list(
+        pages.values()
+    )
+def get_image_paths2(
+    sections
+):
+
+    image_paths: dict[str, dict[int, list[str]]] = {}
+
+    for section in sections:
+
+        document_id = section.document_id
+        page_number = section.page_number
+
+        image_data_path = os.path.join(
+            DATA_DIR,
+            "documents",
+            document_id,
+            "images",
+            f"{document_id}_images.json"
+        )
+
+        with open(
+            image_data_path,
+            "r",
+            encoding="utf-8"
+        ) as file:
+
+            image_data = json.load(file)
+
+        paths = image_data.get(
+            str(page_number),
+            []
+        )
+
+        if document_id not in image_paths:
+            image_paths[document_id] = {}
+
+        if page_number not in image_paths[document_id]:
+            image_paths[document_id][page_number] = []
+
+        for path in paths:
+
+            image_name = os.path.basename(path)
+
+            image_path = (
+                f"/images/{document_id}/images/{image_name}"
+            )
+
+            if image_path not in image_paths[
+                document_id
+            ][page_number]:
+
+                image_paths[
+                    document_id
+                ][page_number].append(
+                    image_path
+                )
+
+    result = []
+
+    for document_id, pages in image_paths.items():
+
+        for page_number, paths in pages.items():
+
+            for path in paths:
+
+                result.append(path)
+
+    return result
+
 
 def retrieve_page_content(
     pages
@@ -609,13 +695,13 @@ def first_aid(
         candidates=candidates
     )
 
-    pages = get_pages_from_sections(
+    pages = get_pages_from_sections2(
         selected_sections
     )
     print("-"*40)
     print(pages)
     print("-"*40)
-    image_paths = get_image_paths(
+    image_paths = get_image_paths2(
         selected_sections
     )
     print(image_paths)
@@ -659,7 +745,7 @@ def first_aid(
 
     return {
         "response": response,
-        "images": image_paths,
+        "image_paths": image_paths,
         "chat_history":
             updated_history
     }
