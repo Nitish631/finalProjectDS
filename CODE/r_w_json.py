@@ -1,6 +1,6 @@
 import json
 from pathlib import Path
-from CODE.toc import DATA_DIR
+from CODE.constant import DATA_DIR
 import bcrypt
 def read_documents_json() -> list:
 

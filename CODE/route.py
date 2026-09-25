@@ -8,14 +8,15 @@ from fastapi import (
     UploadFile,
     File,
     HTTPException,
-    BackgroundTasks
+    BackgroundTasks,
+    Form
 )
 from email.message import EmailMessage
 import bcrypt
 from fastapi.responses import JSONResponse
 from fastapi.staticfiles import StaticFiles
 from CODE.webiomodels import *
-from CODE.r_w_json import *
+from CODE.r_w_json import authenticate_admin,read_documents_json,read_admins,write_documents_json,write_admins
 from dotenv import load_dotenv
 load_dotenv(
     Path(__file__).resolve().parent.parent / ".env"
@@ -46,29 +47,32 @@ app.mount(
 async def update_delete(
     file,
     document_id,
-    adminData: AdminData,
+    email,
+    password,
     background_tasks: BackgroundTasks
 ):
 
     await upload_document(
-        request=adminData,
+        email,
+        password,
         background_tasks=background_tasks,
         file=file
     )
 
-    delete_document(
-        document_id
-    )
+    remove_document(document_id=document_id,request=AdminData(email=email,password=password))
+
+
 
 @app.post("/upload-document")
 async def upload_document(
-    request:AdminData,
-    background_tasks: BackgroundTasks,
+    email: str = Form(...),
+    password: str = Form(...),
+    background_tasks: BackgroundTasks = None,
     file: UploadFile = File(...)
 ):
     admin = authenticate_admin(
-        request.email,
-        request.password
+        email,
+        password
     )
 
     if admin is None:
@@ -175,10 +179,11 @@ async def upload_document(
 
 
 @app.get("/documents")
-def get_documents(request:AdminData):
+def get_documents(email: str,
+    password: str):
     admin = authenticate_admin(
-        request.email,
-        request.password
+        email,
+        password
     )
     if admin is None:
         raise HTTPException(
@@ -203,17 +208,17 @@ def get_documents(request:AdminData):
 
 
 @app.patch("/documents/{document_id}")
-@app.patch("/documents/{document_id}")
 async def update_document(
     document_id: str,
     background_tasks: BackgroundTasks,
-    adminData: AdminData,
+    email: str = Form(...),
+    password: str = Form(...),
     file: UploadFile = File(...)
 ):
 
     admin = authenticate_admin(
-        adminData.email,
-        adminData.password
+        email,
+        password
     )
 
     if admin is None:
@@ -245,7 +250,8 @@ async def update_document(
     await update_delete(
         file=file,
         document_id=document_id,
-        adminData=adminData,
+        email=email,
+        password=password,
         background_tasks=background_tasks
     )
 
@@ -347,7 +353,21 @@ def first_aid_route(
             status_code=500,
             detail=str(e)
         )
-
+@app.post("/login")
+def login(email:str,password:str):
+    admin = authenticate_admin(
+            email,
+            password
+        )
+    if admin is None:
+        raise HTTPException(
+            status_code=401,
+            detail="Invalid admin credentials"
+        )
+    return {
+        "message":"Login Successful"
+    }
+    
 
 @app.post("/send-otp")
 def send_otp(email_message: EmailRequest):

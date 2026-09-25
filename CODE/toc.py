@@ -9,31 +9,10 @@ import pymupdf
 from langchain_ollama import ChatOllama, OllamaEmbeddings
 from langchain_chroma import Chroma
 from langchain_core.documents import Document
+from CODE.r_w_json import read_documents_json,write_documents_json
 
 from pydantic import BaseModel, Field
-
-
-BASE_DIR = os.path.dirname(
-    os.path.dirname(
-        os.path.abspath(__file__)
-    )
-)
-
-DATA_DIR = os.path.join(
-    BASE_DIR,
-    "DATA"
-)
-
-VECTOR_DB_DIR = os.path.join(
-    BASE_DIR,
-    "VECTOR_DB"
-)
-
-COLLECTION_NAME = "first_aid_collection"
-
-OLLAMA_LLM = "llama3.2:latest"
-
-OLLAMA_EMBEDDING_MODEL = "mxbai-embed-large"
+from CODE.constant import *
 
 
 class PageTOC(BaseModel):
@@ -680,6 +659,16 @@ def process_document(
         total_pages=total_pages,
         document_dir=document_dir
     )
+    try:
+        existing_data = read_documents_json()
+        for doc in existing_data:
+            if doc.get("document_id") == document_id:
+                doc["status"] = "processed"
+                break
+        write_documents_json(existing_data)
+        print(f"\nDocument {document_id} status updated to 'processed'.")
+    except Exception as e:
+        print(f"\nError updating document status: {str(e)}")
 
     return {
         "document_id": document_id,
